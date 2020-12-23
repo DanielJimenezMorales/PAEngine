@@ -1,0 +1,35 @@
+TIPO DE JUEGO: ENDLESS RUN
+
+DESCRIPCIÓN BÁSICA:
+Un avatar corre por una pista llena de obstáculos en la que tendrá que irlos esquivarlos moviéndose de izquierda a derecha.
+Además, habrá un tiempo limitado que si se acaba pierdes la partida. Podrás ir cogiendo una especie de power ups que harán que el tiempo
+incremente en x segundos.
+
+CONDICONES DE VICTORIA Y DERROTA:
+Derrota: Si el tiempo se acaba o si te chocas con obstáculos ¿? pierdes
+Victoria: Superar el nivel. (Si lo haces en el menor tiempo posible optarás a entrar en una tabla de rankings)
+
+TIPOS DE POWER UPS:
+1+ = Te suma x segundos adicionales
+2- = Te aumenta la velocidad (por lo que es más difícil esquivar las cosas)
+3- = Te resta tiempo
+4+ = Si te chocas con un objeto no pasa nada
+
+CLASES QUE NECESITAREMOS:
+- JUGADOR
+- PARTIDA (condiciones de victoria y derrota)
+- POWER UPS (Heredar de objeto normal)
+- PISTA (Heredar de objeto normal)
+- CÁMARA TERCERA PERSONA
+
+
+IDEAS PARA NOTABLE:
+TABLA DE RANKINGS (LOS 10 MEJORES TIEMPOS)
+METER EXCEPCIONES
+MENÚ Y ESCENA IN GAME
+CÁMARA CENITAL ADEMÁS DE TERCERA PERSONA
+AÑADIR OBJs
+
+IDEAS PARA SOBRESALIENTE:
+COLISIONES
+...
