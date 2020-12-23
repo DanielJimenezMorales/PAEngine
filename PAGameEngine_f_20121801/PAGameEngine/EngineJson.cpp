@@ -95,6 +95,7 @@ int main(int argc, char** argv) try {
 	glutMouseFunc(mouseClickedFunc);
 	initGraphics();
 
+	//COMENTARIO CHORRA
 	glutMainLoop();
 	std::cout << "Fin que no se ve" << std::endl;
 }
