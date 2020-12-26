@@ -43,6 +43,7 @@ void Game::init() {
 	srand(11);
 
 	Scene* mainScene = new(nothrow) Scene();
+	
 
 	Light* light = new Light(Vector3D(1, 0, 0));
 	mainScene->add(light);
@@ -50,85 +51,31 @@ void Game::init() {
 	Text* pHola = new Text("Hola PA");
 	pHola->setVel(Vector3D(0, 0.5, 0.5));
 	mainScene->add(pHola);
-	Cube* cube0 = new Cube();
-	cube0->setPos(Vector3D(0, 0, 0));
-	cube0->setVel(Vector3D(1, 0, 0));
-	cube0->setRot(Vector3D(45, 33, 27));
-	cube0->setRotVel(Vector3D(15, 23, 12));
-	cube0->setColor(Vector3D(0.1, 0.2, 0.8));
-	mainScene->add(cube0);
 
-	LoaderOBJ::setBasePath(".\\3dModels");
-	LoaderOBJ lobj(0.5);
-	ModelMeshTriangles* diamond = new ModelMeshTriangles();
-	lobj.loadModel("Diamond.obj");
-	*diamond = lobj.getModelMeshTriangles();
-	diamond->setColor(Vector3D(1,1,1));
-	diamond->setPos(Vector3D(2, 4, 3));
-	diamond->setVel(Vector3D(1, 0, 1));
-	diamond->setRotVel(Vector3D(0, 23, 0));
-	mainScene->add(diamond);
-
-	LoaderOBJ lobj2(1.3);
-	ModelMeshTriangles* gearCoin = new ModelMeshTriangles();
-	lobj2.loadModel("GearCoin.obj");
-	*gearCoin = lobj2.getModelMeshTriangles();
-	gearCoin->setColor(Vector3D(0.3, 1, 0.0));
-	gearCoin->setPos(Vector3D(1, 3, 2));
-	gearCoin->setVel(Vector3D(0.2, 0, 0));
-	gearCoin->setRot(Vector3D(30, 30, 0));
-	gearCoin->setRotVel(Vector3D(15, 5, 0));
-	mainScene->add(gearCoin);
-
-	LoaderOBJ lobj3(2);
-	ModelMeshTriangles* bolt = new ModelMeshTriangles();
-	lobj3.loadModel("Bolt.obj");
-	*bolt = lobj3.getModelMeshTriangles();
-	bolt->setColor(Vector3D(1, 0.4, 0.0));
-	bolt->setPos(Vector3D(2, 1, 1));
-	bolt->setVel(Vector3D(0, 1, 0));
-	bolt->setRotVel(Vector3D(0, 50, 0));
-	mainScene->add(bolt);
+	
 
 	this->scenes.push_back(mainScene);
-	this->activeScene = mainScene;
+	
 
-	Scene* secondaryScene = new(nothrow) Scene();
+	//OUR LEVEL
+	Scene* level1 = new(nothrow) Scene();
+	//Camara
+	level1->setSize(Vector3D(0, 5, 0));
+	level1->setRot(Vector3D(20, 0, 0));
 
 	Light* light2 = new Light(Vector3D(1, 0, 0));
-	secondaryScene->add(light2);
-
-	Sphere* ball0 = new Sphere();
-	ball0->setPos(Vector3D(2, 3, 1));
-	ball0->setVel(Vector3D(1, 1, 1));
-	ball0->setColor(Vector3D(0.2, 0.7, 0.1));
-	secondaryScene->add(ball0);
+	level1->add(light2);
 
 	Cuboid* floor = new Cuboid();
 	floor->setPos(Vector3D(5, 0, 5));
 	floor->setColor(Vector3D(0.1, 0.5, 0.3));
 	floor->setHeight(0.1);
 	floor->setLength(10);
-	floor->setWidth(10);
-	secondaryScene->add(floor);
+	floor->setWidth(100);
+	level1->add(floor);
 
-	Cuboid* wall = new Cuboid();
-	wall->setPos(Vector3D(0, 5, 5));
-	wall->setColor(Vector3D(0.2, 0.2, 0.2));
-	wall->setHeight(10);
-	wall->setLength(0.1);
-	wall->setWidth(10);
-	secondaryScene->add(wall);
-
-	Cuboid* wall2 = new Cuboid();
-	wall2->setPos(Vector3D(5, 5, 0));
-	wall2->setColor(Vector3D(0.4, 0.7, 0.9));
-	wall2->setHeight(10);
-	wall2->setLength(10);
-	wall2->setWidth(0.1);
-	secondaryScene->add(wall2);
-
-	this->scenes.push_back(secondaryScene);
+	this->scenes.push_back(level1);
+	this->activeScene = level1;
 }
 
 void Game::init(const string& file)

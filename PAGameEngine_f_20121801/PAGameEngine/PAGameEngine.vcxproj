@@ -150,6 +150,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="loader_obj.cpp" />
+    <ClCompile Include="mainCamera.cpp" />
     <ClCompile Include="model_mesh_triangles.cpp" />
     <ClCompile Include="EngineJson.cpp" />
     <ClCompile Include="scene.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="light.h" />
     <ClInclude Include="loader_obj.h" />
+    <ClInclude Include="mainCamera.h" />
     <ClInclude Include="model_mesh_triangles.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="solid.h" />
