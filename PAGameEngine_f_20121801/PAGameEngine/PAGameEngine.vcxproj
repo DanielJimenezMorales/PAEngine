@@ -153,6 +153,7 @@
     <ClCompile Include="mainCamera.cpp" />
     <ClCompile Include="model_mesh_triangles.cpp" />
     <ClCompile Include="EngineJson.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="solid.cpp" />
     <ClCompile Include="sphere.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="loader_obj.h" />
     <ClInclude Include="mainCamera.h" />
     <ClInclude Include="model_mesh_triangles.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="solid.h" />
     <ClInclude Include="sphere.h" />

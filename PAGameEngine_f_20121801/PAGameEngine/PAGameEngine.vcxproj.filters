@@ -99,6 +99,9 @@
     <ClCompile Include="mainCamera.cpp">
       <Filter>Archivos de origen\cameras</Filter>
     </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -159,6 +162,9 @@
       <Filter>Archivos de encabezado\elements</Filter>
     </ClInclude>
     <ClInclude Include="mainCamera.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

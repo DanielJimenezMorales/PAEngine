@@ -65,6 +65,22 @@ void Game::init() {
 
 	Light* light2 = new Light(Vector3D(1, 0, 0));
 	level1->add(light2);
+	/*
+	LoaderOBJ::setBasePath(".\\3dModels");
+	LoaderOBJ lobj(6);
+	lobj.loadModel("Bolt.obj");
+	Player* player = new Player();
+	player->setPlayerMesh(&(lobj.getModelMeshTriangles()));
+	player->setPos(Vector3D(0, 2, -10));
+	level1->add(player);
+	*/
+
+	Cube* floor1 = new Cube();
+	floor1->setPos(Vector3D(5, 2, 20));
+	floor1->setSize(0.5);
+	floor1->setColor(Vector3D(1, 1, 0.3));
+
+	level1->add(floor1);
 
 	Cuboid* floor = new Cuboid();
 	floor->setPos(Vector3D(5, 0, 5));
@@ -72,7 +88,7 @@ void Game::init() {
 	floor->setHeight(0.1);
 	floor->setLength(10);
 	floor->setWidth(100);
-	level1->add(floor);
+	//level1->add(floor);
 
 	this->scenes.push_back(level1);
 	this->activeScene = level1;
