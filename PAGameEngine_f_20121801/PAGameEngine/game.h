@@ -18,7 +18,6 @@
 #include "light.h"
 #include "cuboid.h"
 #include "text.h"
-#include "player.h"
 #include <chrono>
 
 using namespace std::chrono;
