@@ -96,6 +96,9 @@
     <ClCompile Include="cuboid.cpp">
       <Filter>Archivos de origen\elements</Filter>
     </ClCompile>
+    <ClCompile Include="gameScene.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="text.h">
       <Filter>Archivos de encabezado\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

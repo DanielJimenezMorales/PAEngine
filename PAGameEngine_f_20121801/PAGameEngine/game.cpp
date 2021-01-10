@@ -42,14 +42,12 @@ public:
 void Game::init() {
 	srand(11);
 
-	Scene* mainScene = new(nothrow) Scene();
-
-	Light* light = new Light(Vector3D(1, 0, 0));
-	mainScene->add(light);
-
+	GameScene* mainScene = new(nothrow) GameScene();
+	mainScene->getCamera()->update(100);
+	/*
 	Text* pHola = new Text("Hola PA");
 	pHola->setVel(Vector3D(0, 0.5, 0.5));
-	mainScene->add(pHola);
+	mainScene->add(pHola)
 	Cube* cube0 = new Cube();
 	cube0->setPos(Vector3D(0, 0, 0));
 	cube0->setVel(Vector3D(1, 0, 0));
@@ -88,12 +86,32 @@ void Game::init() {
 	bolt->setPos(Vector3D(2, 1, 1));
 	bolt->setVel(Vector3D(0, 1, 0));
 	bolt->setRotVel(Vector3D(0, 50, 0));
-	mainScene->add(bolt);
+	mainScene->add(bolt);*/
+
+	Cube* player = new Cube();
+	player->setPos(Vector3D(0, 2, 0));
+	player->setSize(1);
+	//player->setVel(Vector3D(1, 0, 0));
+	//player->setColor(Vector3D(0.1, 0.2, 0.8));
+	mainScene->add(player);
+
+	Light* sun = new Light(Vector3D(0, 1, 0));
+	mainScene->add(sun);
+
+	mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
+
+	Cuboid* terrain = new Cuboid();
+	terrain->setPos(Vector3D(0, 0, 3));
+	terrain->setColor(Vector3D(0, 1, 0));
+	terrain->setHeight(0.1);
+	terrain->setLength(15);
+	terrain->setWidth(100);
+	mainScene->add(terrain);
 
 	this->scenes.push_back(mainScene);
 	this->activeScene = mainScene;
 
-	Scene* secondaryScene = new(nothrow) Scene();
+	GameScene* secondaryScene = new(nothrow) GameScene();
 
 	Light* light2 = new Light(Vector3D(1, 0, 0));
 	secondaryScene->add(light2);
@@ -130,7 +148,7 @@ void Game::init() {
 
 	this->scenes.push_back(secondaryScene);
 }
-
+/*
 void Game::init(const string& file)
 {
 	LoaderOBJ::setBasePath(".\\3dModels");
@@ -201,7 +219,7 @@ void Game::init(const string& file)
 	{
 		cout << "Error leyendo archivo: " << file << endl;
 	}
-}
+}*/
 
 void Game::render() {
 	this->activeScene->render();
@@ -233,6 +251,33 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 		{
 			this->activeScene = this->scenes[1];
 		}
+		break;
+	case 'w':
+		if (this->activeScene != nullptr)
+		{
+			this->activeScene->getCamera()->update(0.2);
+		}
+		break;
+	case 's':
+		if (this->activeScene != nullptr)
+		{
+			this->activeScene->getCamera()->update(-0.2);
+		}
+		break;
+	case 'a':
+		if (this->activeScene != nullptr)
+		{
+			this->scenes[0]->getSolid(0)->setVel(Vector3D(-1, 0, 0));
+		}
+		break;
+	case 'd':
+		if (this->activeScene != nullptr)
+		{
+			this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
+		}
+		break;
+	default:
+		this->scenes[0]->getSolid(0)->setVel(Vector3D(0, 0, 0));
 		break;
 	}
 	this->activeScene->processKeyPressed(key, x, y);

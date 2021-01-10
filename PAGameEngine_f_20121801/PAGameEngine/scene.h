@@ -3,7 +3,7 @@
 #include "camera.h"
 
 using namespace std;
-class Scene :public Composite {
+class Scene : public Composite {
 	Vector3D size;
 	Camera* camera;
 	double mx, my;

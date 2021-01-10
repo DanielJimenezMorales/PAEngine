@@ -18,6 +18,7 @@
 #include "light.h"
 #include "cuboid.h"
 #include "text.h"
+#include "gameScene.h"
 #include <chrono>
 
 using namespace std::chrono;
@@ -29,8 +30,10 @@ class Game {
 	milliseconds initialMilliseconds;
 	long lastUpdatedTime;
 
-	Scene* activeScene;
-	vector<Scene*> scenes;
+	GameScene* activeScene;
+	vector<GameScene*> scenes;
+	/*Scene* activeScene;
+	vector<Scene*> scenes;*/
 
 public:
 

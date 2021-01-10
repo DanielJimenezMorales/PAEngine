@@ -148,6 +148,7 @@
     <ClCompile Include="cuboid.cpp" />
     <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="loader_obj.cpp" />
     <ClCompile Include="model_mesh_triangles.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="cuboid.h" />
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="gameScene.h" />
     <ClInclude Include="light.h" />
     <ClInclude Include="loader_obj.h" />
     <ClInclude Include="model_mesh_triangles.h" />
