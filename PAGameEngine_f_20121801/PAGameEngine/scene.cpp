@@ -76,7 +76,7 @@ void Scene::processMouseMovement(int x, int y) {
 	//cout << "La posicion del raton es:" << x << "," << y << endl;
 	if (mx >= 0 && my >= 0) {
 		Vector3D r = this->camera->getRot() + Vector3D(y - my, x - mx, 0) * 0.01;
-		//this->camera->setRot(r);
+		this->camera->setRot(r);
 	}
 	mx = x;
 	my = y;

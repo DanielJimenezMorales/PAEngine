@@ -96,9 +96,6 @@
     <ClCompile Include="cuboid.cpp">
       <Filter>Archivos de origen\elements</Filter>
     </ClCompile>
-    <ClCompile Include="mainCamera.cpp">
-      <Filter>Archivos de origen\cameras</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -157,9 +154,6 @@
     </ClInclude>
     <ClInclude Include="text.h">
       <Filter>Archivos de encabezado\elements</Filter>
-    </ClInclude>
-    <ClInclude Include="mainCamera.h">
-      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
