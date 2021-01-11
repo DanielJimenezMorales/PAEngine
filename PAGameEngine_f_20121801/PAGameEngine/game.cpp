@@ -88,8 +88,8 @@ void Game::init() {
 	bolt->setRotVel(Vector3D(0, 50, 0));
 	mainScene->add(bolt);*/
 
-	Cube* player = new Cube();
-	player->setPos(Vector3D(mainScene->getSize().getX() / 2, 2, 80));
+	Player* player = new Player();
+	player->setPos(Vector3D(mainScene->getSize().getX() / 2, 2, 90));
 	player->setSize(1);
 	//player->setVel(Vector3D(1, 0, 0));
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
@@ -255,25 +255,33 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 	case 'w':
 		if (this->activeScene != nullptr)
 		{
-			this->activeScene->getCamera()->update(0.2);
+			//this->activeScene->getCamera()->update(0.2);
+			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+			myPlayer->ModifySpeed(-1.0f);
 		}
 		break;
 	case 's':
 		if (this->activeScene != nullptr)
 		{
-			this->activeScene->getCamera()->update(-0.2);
+			//this->activeScene->getCamera()->update(-0.2);
+			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+			myPlayer->ModifySpeed(2.0f);
 		}
 		break;
 	case 'a':
 		if (this->activeScene != nullptr)
 		{
-			this->scenes[0]->getSolid(0)->setVel(Vector3D(-1, 0, 0));
+			//this->scenes[0]->getSolid(0)->setVel(Vector3D(-1, 0, 0));
+			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+			myPlayer->SideMovement(-1.0f);
 		}
 		break;
 	case 'd':
 		if (this->activeScene != nullptr)
 		{
-			this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
+			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
+			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+			myPlayer->SideMovement(1.0f);
 		}
 		break;
 	default:

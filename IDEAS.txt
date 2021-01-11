@@ -11,7 +11,7 @@ Victoria: Superar el nivel. (Si lo haces en el menor tiempo posible optarás a e
 
 TIPOS DE POWER UPS:
 1+ = Te suma x segundos adicionales
-2- = Te aumenta la velocidad (por lo que es más difícil esquivar las cosas)
+2- = Te aumenta la velocidad (por lo que es más difícil esquivar las cosas) //Hecho
 3- = Te resta tiempo
 4+ = Si te chocas con un objeto no pasa nada
 

@@ -19,6 +19,7 @@
 #include "cuboid.h"
 #include "text.h"
 #include "gameScene.h"
+#include "player.h"
 #include <chrono>
 
 using namespace std::chrono;

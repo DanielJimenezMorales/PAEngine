@@ -10,7 +10,7 @@ public:
 	Text(const Text& c) :Solid(c), text(c.text) {}
 	Text* clone() { return new Text(*this); }
 	inline string getText() { return text; }
-	inline void   setText(string t) { text = t; }
+	inline void setText(string t) { text = t; }
 	void render() {
 		glPushMatrix();
 		glColor3d(this->getColor().getX(), this->getColor().getY(), this->getColor().getZ());

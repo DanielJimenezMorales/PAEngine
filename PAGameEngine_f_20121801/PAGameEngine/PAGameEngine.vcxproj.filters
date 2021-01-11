@@ -99,6 +99,9 @@
     <ClCompile Include="gameScene.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Archivos de origen\elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -159,6 +162,9 @@
       <Filter>Archivos de encabezado\elements</Filter>
     </ClInclude>
     <ClInclude Include="gameScene.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
