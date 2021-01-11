@@ -144,6 +144,7 @@
     <ClCompile Include="CameraFly.cpp" />
     <ClCompile Include="camera_fps.cpp" />
     <ClCompile Include="composite.cpp" />
+    <ClCompile Include="contador.cpp" />
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="cuboid.cpp" />
     <ClCompile Include="cylinder.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="camera_fly.h" />
     <ClInclude Include="camera_fps.h" />
     <ClInclude Include="composite.h" />
+    <ClInclude Include="contador.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="cuboid.h" />
     <ClInclude Include="cylinder.h" />

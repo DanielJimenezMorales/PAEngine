@@ -284,8 +284,9 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 			myPlayer->SideMovement(1.0f);
 		}
 		break;
-	default:
-		this->scenes[0]->getSolid(0)->setVel(Vector3D(0, 0, 0));
+	case 'r':
+		Player * myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+		myPlayer->getContador()->empezarContador();
 		break;
 	}
 	this->activeScene->processKeyPressed(key, x, y);

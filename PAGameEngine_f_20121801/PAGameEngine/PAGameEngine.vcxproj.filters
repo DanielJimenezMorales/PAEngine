@@ -102,6 +102,9 @@
     <ClCompile Include="player.cpp">
       <Filter>Archivos de origen\elements</Filter>
     </ClCompile>
+    <ClCompile Include="contador.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -161,11 +164,14 @@
     <ClInclude Include="text.h">
       <Filter>Archivos de encabezado\elements</Filter>
     </ClInclude>
-    <ClInclude Include="gameScene.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="player.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="contador.h">
+      <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
