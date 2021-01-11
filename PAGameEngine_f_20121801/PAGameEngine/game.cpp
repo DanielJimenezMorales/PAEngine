@@ -42,7 +42,7 @@ public:
 void Game::init() {
 	srand(11);
 
-	GameScene* mainScene = new(nothrow) GameScene();
+	GameScene* mainScene = new(nothrow) GameScene(Vector3D(16, 12, 200));
 	mainScene->getCamera()->update(100);
 	/*
 	Text* pHola = new Text("Hola PA");
@@ -89,7 +89,7 @@ void Game::init() {
 	mainScene->add(bolt);*/
 
 	Cube* player = new Cube();
-	player->setPos(Vector3D(0, 2, 0));
+	player->setPos(Vector3D(mainScene->getSize().getX() / 2, 2, 80));
 	player->setSize(1);
 	//player->setVel(Vector3D(1, 0, 0));
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
@@ -98,13 +98,13 @@ void Game::init() {
 	Light* sun = new Light(Vector3D(0, 1, 0));
 	mainScene->add(sun);
 
-	mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
+	//mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
 
 	Cuboid* terrain = new Cuboid();
-	terrain->setPos(Vector3D(0, 0, 3));
+	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, 80));
 	terrain->setColor(Vector3D(0, 1, 0));
 	terrain->setHeight(0.1);
-	terrain->setLength(15);
+	terrain->setLength(22);
 	terrain->setWidth(100);
 	mainScene->add(terrain);
 

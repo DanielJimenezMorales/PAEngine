@@ -20,7 +20,7 @@ CLASES QUE NECESITAREMOS:
 - PARTIDA (condiciones de victoria y derrota)
 - POWER UPS (Heredar de objeto normal)
 - PISTA (Heredar de objeto normal)
-- CÁMARA TERCERA PERSONA
+- CÁMARA TERCERA PERSONA (En gameScene)
 
 
 IDEAS PARA NOTABLE:

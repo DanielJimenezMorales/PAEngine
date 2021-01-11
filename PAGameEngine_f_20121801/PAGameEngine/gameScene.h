@@ -13,6 +13,7 @@ public:
 	GameScene(Vector3D s = Vector3D(10, 10, 10)) : size(s), Composite()
 	{
 		this->camera = new CameraFPS();
+		this->camera->setPos(Vector3D(this->size.getX() / 2, this->size.getY() / 2, size.getZ()));
 	}
 	inline Vector3D getSize() const { return this->size; }
 	inline void setSize(const Vector3D& sizeToSet) { this->size = sizeToSet; this->camera->setPos(Vector3D(size.getX() / 2, size.getY() / 2, size.getZ() * 2)); }
