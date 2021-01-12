@@ -154,6 +154,8 @@
     <ClCompile Include="loader_obj.cpp" />
     <ClCompile Include="model_mesh_triangles.cpp" />
     <ClCompile Include="EngineJson.cpp" />
+    <ClCompile Include="myGame.cpp" />
+    <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="solid.cpp" />
@@ -178,6 +180,8 @@
     <ClInclude Include="light.h" />
     <ClInclude Include="loader_obj.h" />
     <ClInclude Include="model_mesh_triangles.h" />
+    <ClInclude Include="myGame.h" />
+    <ClInclude Include="obstacle.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="solid.h" />

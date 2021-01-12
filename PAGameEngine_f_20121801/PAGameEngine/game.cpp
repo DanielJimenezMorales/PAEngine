@@ -41,6 +41,7 @@ public:
 
 void Game::init() {
 	srand(11);
+	//MyGame* myGameScene = new(nothrow) MyGame();
 
 	GameScene* mainScene = new(nothrow) GameScene(Vector3D(16, 12, 200));
 	/*
@@ -94,11 +95,11 @@ void Game::init() {
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
 	mainScene->add(player);
 
-	Cube* obstacle = new Cube();
+	Obstacle* obstacle = new Obstacle();
 	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, 83));
 	mainScene->add(obstacle);
 
-	Cube* obstacle2 = new Cube();
+	Obstacle* obstacle2 = new Obstacle();
 	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, 83));
 	obstacle2->setColor(Vector3D(1,0.1,0.1));
 	mainScene->add(obstacle2);
@@ -146,7 +147,7 @@ void Game::init() {
 	floor->setWidth(10);
 	secondaryScene->add(floor);
 
-	Cuboid* wall = new Cuboid();
+	/*Cuboid* wall = new Cuboid();
 	wall->setPos(Vector3D(0, 5, 5));
 	wall->setColor(Vector3D(0.2, 0.2, 0.2));
 	wall->setHeight(10);
@@ -160,7 +161,7 @@ void Game::init() {
 	wall2->setHeight(10);
 	wall2->setLength(10);
 	wall2->setWidth(0.1);
-	//secondaryScene->add(wall2);
+	//secondaryScene->add(wall2);*/
 
 	this->scenes.push_back(secondaryScene);
 	this->activeScene = secondaryScene;
@@ -281,7 +282,7 @@ void Game::update() {
 	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
 	for (int i = 1; i < this->scenes[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
 	{
-		if (myPlayer->collisionDetectionAABB(static_cast<Cube*>(this->scenes[0]->getSolid(i))) == true)
+		if (myPlayer->collisionDetectionAABB(static_cast<Obstacle*>(this->scenes[0]->getSolid(i))) == true)
 		{
 			myPlayer->setPos(Vector3D(this->scenes[0]->getSize().getX() / 2, 2, 90));
 			cout << "reset" << endl;
@@ -308,55 +309,6 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 		if (this->scenes[1] != nullptr)
 		{
 			this->activeScene = this->scenes[1];
-		}
-		break;
-	case '3':
-		if (this->scenes[2] != nullptr)
-		{
-			this->activeScene = this->scenes[2];
-		}
-		break;
-	case 'w':
-		if (this->activeScene != nullptr)
-		{
-			//this->activeScene->getCamera()->setVel(Vector3D(0,0,2));
-			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-			myPlayer->ModifySpeed(-1.0f);
-		}
-		break;
-	case 's':
-		if (this->activeScene != nullptr)
-		{
-			//this->activeScene->getCamera()->update(-0.2);
-			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-			myPlayer->ModifySpeed(2.0f);
-		}
-		break;
-	case 'a':
-		if (this->activeScene != nullptr)
-		{
-			//this->scenes[0]->getSolid(0)->setVel(Vector3D(-1, 0, 0));
-			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-			myPlayer->SideMovement(-1.0f);
-		}
-		break;
-	case 'd':
-		if (this->activeScene != nullptr)
-		{
-			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
-			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-			myPlayer->SideMovement(1.0f);
-		}
-		break;
-	case 'x':
-		if (this->activeScene == this->scenes[1])
-		{
-			empezarJuego();
-		}
-		else if (this->activeScene == this->scenes[2])
-		{
-			this->scenes.clear();
-			init();
 		}
 		break;
 	}

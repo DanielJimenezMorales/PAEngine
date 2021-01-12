@@ -13,7 +13,7 @@ void Player::SideMovement(float newXSpeed)
 	this->setVel(Vector3D(newXSpeed, 0, this->getVel().getZ()));
 }
 
-bool Player::collisionDetectionAABB(Cube* obstacle)
+bool Player::collisionDetectionAABB(Obstacle* obstacle)
 {
 	//https://learnopengl.com/In-Practice/2D-Game/Collisions/Collision-detection
 	if (this->getMinPoint().getX() < obstacle->getPos().getX() + 0.5 &&

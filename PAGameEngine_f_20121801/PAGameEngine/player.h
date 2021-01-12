@@ -2,6 +2,7 @@
 #include "cube.h"
 #include "contador.h"
 #include "camera_fps.h"
+#include "obstacle.h"
 
 class Player : public Cube
 {
@@ -24,5 +25,5 @@ public:
 	void SideMovement(float newXSpeed);
 	Vector3D getMinPoint() { return this->getPos() - Vector3D(0.5, 0.5, 0.5); }
 	Vector3D getMaxPoint() { return this->getPos() + Vector3D(0.5, 0.5, 0.5); }
-	bool collisionDetectionAABB(Cube* obstacle);
+	bool collisionDetectionAABB(Obstacle* obstacle);
 };

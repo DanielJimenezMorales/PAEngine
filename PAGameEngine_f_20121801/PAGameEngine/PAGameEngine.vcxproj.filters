@@ -105,6 +105,12 @@
     <ClCompile Include="contador.cpp">
       <Filter>Archivos de origen\core</Filter>
     </ClCompile>
+    <ClCompile Include="obstacle.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="myGame.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -172,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="contador.h">
       <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="obstacle.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="myGame.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

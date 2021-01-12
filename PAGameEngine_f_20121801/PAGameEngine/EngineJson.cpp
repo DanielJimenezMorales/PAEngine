@@ -1,4 +1,5 @@
 #include "game.h"
+#include "myGame.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ GLclampf clearAlpha = 1.0;
 bool fullScreenMode = false;
 
 /**********************************************************************/
-Game game;
+MyGame game;
 
 void reshapeFunc(GLsizei width, GLsizei height) {
 	if (height == 0) height = 1;

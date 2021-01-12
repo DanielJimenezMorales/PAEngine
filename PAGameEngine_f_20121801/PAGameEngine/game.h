@@ -20,6 +20,8 @@
 #include "text.h"
 #include "gameScene.h"
 #include "player.h"
+#include "obstacle.h"
+//#include "myGame.h"
 #include <chrono>
 
 using namespace std::chrono;
@@ -45,9 +47,14 @@ public:
 
 	void render();
 	void update();
-	void processKeyPressed(unsigned char key, int x, int y);
+	virtual void processKeyPressed(unsigned char key, int x, int y);
 	void processMouseMovement(int x, int y);
 	void processMouseClick(int button, int state, int x, int y);
+
+	GameScene* getActiveScene() { return this->activeScene;}
+	void setActiveScene(GameScene* myScene) { this->activeScene = myScene; }
+	vector<GameScene*> getScenes() { return this->scenes; }
+	void setScenes(vector<GameScene*> myScenes){ this->scenes = myScenes; }
 
 	void empezarJuego();
 	void gameOver();
