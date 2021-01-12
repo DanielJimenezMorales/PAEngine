@@ -1,6 +1,8 @@
 #pragma once
 #include "text.h"
-#include <windows.h>
+#include <chrono>
+
+using namespace std::chrono;
 
 class Contador : public Text
 {
@@ -16,5 +18,6 @@ public:
 	}
 
 	void empezarContador();
+	void update();
 };
 

@@ -3,7 +3,8 @@
 void Player::ModifySpeed(float newSpeedMultiplier)
 {
 	this->speedMultiplier = newSpeedMultiplier;
-	this->setVel(Vector3D(this->getVel().getX(), 0, 1 * speedMultiplier));
+	this->setVel(Vector3D(this->getVel().getX(), 0, speedMultiplier));
+	this->playerCamera->setVel(Vector3D(0, 0, 2));
 	//this->update(speedMultiplier);
 }
 

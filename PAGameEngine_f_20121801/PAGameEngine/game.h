@@ -48,5 +48,8 @@ public:
 	void processKeyPressed(unsigned char key, int x, int y);
 	void processMouseMovement(int x, int y);
 	void processMouseClick(int button, int state, int x, int y);
+
+	void empezarJuego();
+	void gameOver();
 };
 

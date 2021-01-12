@@ -19,7 +19,7 @@ public:
 	inline void setSize(const Vector3D& sizeToSet) { this->size = sizeToSet; this->camera->setPos(Vector3D(size.getX() / 2, size.getY() / 2, size.getZ() * 2)); }
 	CameraFPS* getCamera();
 	void update(const double& dt);
-	void render();
+	void render(CameraFPS* renderCamera);
 	void processKeyPressed(unsigned char key, int x, int y);
 	void processMouseMovement(int x, int y);
 	void processMouseClick(int button, int state, int x, int y);

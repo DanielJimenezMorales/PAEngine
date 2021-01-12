@@ -8,9 +8,9 @@ CameraFPS* GameScene::getCamera()
 	return this->camera;
 }
 
-void GameScene::render()
+void GameScene::render(CameraFPS* renderCamera)
 {
-	this->camera->render();
+	renderCamera->render();
 	Composite::render();
 }
 

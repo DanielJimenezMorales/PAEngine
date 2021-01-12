@@ -43,7 +43,6 @@ void Game::init() {
 	srand(11);
 
 	GameScene* mainScene = new(nothrow) GameScene(Vector3D(16, 12, 200));
-	mainScene->getCamera()->update(100);
 	/*
 	Text* pHola = new Text("Hola PA");
 	pHola->setVel(Vector3D(0, 0.5, 0.5));
@@ -89,7 +88,7 @@ void Game::init() {
 	mainScene->add(bolt);*/
 
 	Player* player = new Player();
-	player->setPos(Vector3D(mainScene->getSize().getX() / 2, 2, 90));
+	player->setPlayerPos(Vector3D(mainScene->getSize().getX() / 2, 2, 90));
 	player->setSize(1);
 	//player->setVel(Vector3D(1, 0, 0));
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
@@ -118,9 +117,17 @@ void Game::init() {
 	mainScene->add(terrain);
 
 	this->scenes.push_back(mainScene);
-	this->activeScene = mainScene;
+	
 
 	GameScene* secondaryScene = new(nothrow) GameScene();
+
+	Text* menuText = new Text("Juego de Sergio y Dani");
+	menuText->setPos(Vector3D(2.5, 9, 0));
+	secondaryScene->add(menuText);
+
+	Text* pulsaText = new Text("PULSA X PARA EMPEZAR");
+	pulsaText->setPos(Vector3D(2.6, 5, 0));
+	secondaryScene->add(pulsaText);
 
 	Light* light2 = new Light(Vector3D(1, 0, 0));
 	secondaryScene->add(light2);
@@ -145,7 +152,7 @@ void Game::init() {
 	wall->setHeight(10);
 	wall->setLength(0.1);
 	wall->setWidth(10);
-	secondaryScene->add(wall);
+	//secondaryScene->add(wall);
 
 	Cuboid* wall2 = new Cuboid();
 	wall2->setPos(Vector3D(5, 5, 0));
@@ -153,9 +160,23 @@ void Game::init() {
 	wall2->setHeight(10);
 	wall2->setLength(10);
 	wall2->setWidth(0.1);
-	secondaryScene->add(wall2);
+	//secondaryScene->add(wall2);
 
 	this->scenes.push_back(secondaryScene);
+	this->activeScene = secondaryScene;
+
+	GameScene* gameOverScene = new(nothrow) GameScene();
+
+	Text* text1 = new Text("GAME OVER");
+	text1->setPos(Vector3D(2.5, 9, 0));
+	gameOverScene->add(menuText);
+
+	Text* text2 = new Text("PULSA X PARA CONTINUAR");
+	text2->setPos(Vector3D(2.6, 5, 0));
+	gameOverScene->add(text2);
+
+	this->scenes.push_back(gameOverScene);
+
 }
 /*
 void Game::init(const string& file)
@@ -231,7 +252,19 @@ void Game::init(const string& file)
 }*/
 
 void Game::render() {
-	this->activeScene->render();
+	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+
+	//Según la escena en la que estemos se renderizará una cámara distinta
+	if (this->activeScene == this->scenes[1] || this->activeScene == this->scenes[2])
+	{
+		this->activeScene->render(activeScene->getCamera());
+	}
+	else
+	{
+		this->activeScene->render(myPlayer->getPlayerCamera());
+	}
+	
+	//this->activeScene->render(activeScene->getCamera());
 }
 
 void Game::update() {
@@ -244,6 +277,22 @@ void Game::update() {
 		this->lastUpdatedTime = currentTime.count() - this->initialMilliseconds.count();
 	}
 
+	//Colisiones
+	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+	for (int i = 1; i < this->scenes[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
+	{
+		if (myPlayer->collisionDetectionAABB(static_cast<Cube*>(this->scenes[0]->getSolid(i))) == true)
+		{
+			myPlayer->setPos(Vector3D(this->scenes[0]->getSize().getX() / 2, 2, 90));
+			cout << "reset" << endl;
+		}
+	}
+
+	if (myPlayer->getPos().getZ() < 70)
+	{
+		cout << "Has ganado" << endl;
+		gameOver();
+	}
 }
 
 void Game::processKeyPressed(unsigned char key, int x, int y) {
@@ -261,10 +310,16 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 			this->activeScene = this->scenes[1];
 		}
 		break;
+	case '3':
+		if (this->scenes[2] != nullptr)
+		{
+			this->activeScene = this->scenes[2];
+		}
+		break;
 	case 'w':
 		if (this->activeScene != nullptr)
 		{
-			//this->activeScene->getCamera()->update(0.2);
+			//this->activeScene->getCamera()->setVel(Vector3D(0,0,2));
 			Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
 			myPlayer->ModifySpeed(-1.0f);
 		}
@@ -293,20 +348,17 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 			myPlayer->SideMovement(1.0f);
 		}
 		break;
-	case 'r':
-		Player * myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-		myPlayer->getContador()->empezarContador();
-		break;
-	}
-
-	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-	for (int i = 1; i < this->scenes[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
-	{
-		if (myPlayer->collisionDetectionAABB(static_cast<Cube*>(this->scenes[0]->getSolid(i))) == true)
+	case 'x':
+		if (this->activeScene == this->scenes[1])
 		{
-			myPlayer->setPos(Vector3D(this->scenes[0]->getSize().getX() / 2, 2, 90));
-			cout << "reset" << endl;
+			empezarJuego();
 		}
+		else if (this->activeScene == this->scenes[2])
+		{
+			this->scenes.clear();
+			init();
+		}
+		break;
 	}
 
 	this->activeScene->processKeyPressed(key, x, y);
@@ -318,5 +370,29 @@ void Game::processMouseMovement(int x, int y) {
 
 void Game::processMouseClick(int button, int state, int x, int y) {
 	this->activeScene->processMouseClick(button, state, x, y);
+}
+
+void Game::empezarJuego()
+{
+	if (this->activeScene == this->scenes[1] && this->scenes[0] != nullptr)
+	{
+		//Cambiamos a la escena del juego
+		this->activeScene = this->scenes[0];
+
+		//Comenzamos a mover al jugador
+		Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+		myPlayer->ModifySpeed(-1.0f);
+	}
+}
+
+void Game::gameOver()
+{
+	if (this->activeScene == this->scenes[0] && this->scenes[2] != nullptr)
+	{
+		this->activeScene = this->scenes[2];
+
+		Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+		myPlayer->ModifySpeed(0.0f);
+	}
 }
 
