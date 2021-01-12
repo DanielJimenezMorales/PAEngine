@@ -21,6 +21,7 @@ CLASES QUE NECESITAREMOS:
 - POWER UPS (Heredar de objeto normal)
 - PISTA (Heredar de objeto normal)
 - CÁMARA TERCERA PERSONA (En gameScene)
+- CONTADOR
 
 
 IDEAS PARA NOTABLE:

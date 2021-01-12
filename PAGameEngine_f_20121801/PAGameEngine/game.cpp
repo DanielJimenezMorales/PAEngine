@@ -95,6 +95,15 @@ void Game::init() {
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
 	mainScene->add(player);
 
+	Cube* obstacle = new Cube();
+	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, 83));
+	mainScene->add(obstacle);
+
+	Cube* obstacle2 = new Cube();
+	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, 83));
+	obstacle2->setColor(Vector3D(1,0.1,0.1));
+	mainScene->add(obstacle2);
+
 	Light* sun = new Light(Vector3D(0, 1, 0));
 	mainScene->add(sun);
 
@@ -289,6 +298,17 @@ void Game::processKeyPressed(unsigned char key, int x, int y) {
 		myPlayer->getContador()->empezarContador();
 		break;
 	}
+
+	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
+	for (int i = 1; i < this->scenes[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
+	{
+		if (myPlayer->collisionDetectionAABB(static_cast<Cube*>(this->scenes[0]->getSolid(i))) == true)
+		{
+			myPlayer->setPos(Vector3D(this->scenes[0]->getSize().getX() / 2, 2, 90));
+			cout << "reset" << endl;
+		}
+	}
+
 	this->activeScene->processKeyPressed(key, x, y);
 }
 
