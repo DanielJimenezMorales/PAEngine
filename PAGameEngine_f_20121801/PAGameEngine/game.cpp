@@ -41,7 +41,7 @@ public:
 
 void Game::init() {
 	srand(11);
-	GameScene* mainScene = new(nothrow) GameScene(Vector3D(16, 12, 200));
+	GameScene* mainScene = new(nothrow) GameScene(true);
 	/*
 	Text* pHola = new Text("Hola PA");
 	pHola->setVel(Vector3D(0, 0.5, 0.5));

@@ -33,10 +33,10 @@ class Game {
 	milliseconds initialMilliseconds;
 	long lastUpdatedTime;
 
-	GameScene* activeScene;
-	vector<GameScene*> scenes;
-	/*Scene* activeScene;
-	vector<Scene*> scenes;*/
+	/*GameScene* activeScene;
+	vector<GameScene*> scenes;*/
+	Scene* activeScene;
+	vector<Scene*> scenes;
 
 public:
 
@@ -56,9 +56,9 @@ public:
 	void setLastUpdatedTime(long newLastUpdatedTime) { this->lastUpdatedTime = newLastUpdatedTime; }
 	double getTimeIncrement() { return TIME_INCREMENT; }
 	int getUpdatePeriod() { return UPDATE_PERIOD; }
-	GameScene* getActiveScene() { return this->activeScene;}
-	void setActiveScene(GameScene* myScene) { this->activeScene = myScene; }
-	vector<GameScene*> getScenes() { return this->scenes; }
-	void setScenes(vector<GameScene*> myScenes){ this->scenes = myScenes; }
+	Scene* getActiveScene() { return this->activeScene;}
+	void setActiveScene(Scene* myScene) { this->activeScene = myScene; }
+	vector<Scene*> getScenes() { return this->scenes; }
+	void setScenes(vector<Scene*> myScenes){ this->scenes = myScenes; }
 };
 

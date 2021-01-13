@@ -16,7 +16,7 @@ public:
 	{
 		speedMultiplier = 1.0f;
 		this->playerCamera = new CameraFPS();
-		this->playerCamera->setPos(Vector3D(this->getPos().getX(), 6, this->getPos().getZ() + 20));
+		this->playerCamera->setPos(Vector3D(this->getPos().getX(), 6, this->getPos().getZ()));
 	}
 	CameraFPS* getPlayerCamera() { return this->playerCamera; }
 	Contador* getContador() { return this->contador; }

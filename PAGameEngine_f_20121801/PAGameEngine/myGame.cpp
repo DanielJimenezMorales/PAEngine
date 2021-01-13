@@ -2,7 +2,7 @@
 
 void MyGame::clearScenes()
 {
-	vector<GameScene*> newVector;
+	vector<Scene*> newVector;
 	setScenes(newVector);
 }
 
@@ -13,11 +13,11 @@ void MyGame::render() {
 	if (getActiveScene() == getScenes()[1] || getActiveScene() == getScenes()[2])
 	{
 		
-		getActiveScene()->render(getActiveScene()->getCamera());
+		getActiveScene()->render();
 	}
 	else
 	{
-		getActiveScene()->render(myPlayer->getPlayerCamera());
+		getActiveScene()->render();
 	}
 }
 
@@ -42,9 +42,10 @@ void MyGame::update() {
 		}
 	}
 
-	if (myPlayer->getPos().getZ() < 70)
+	if (myPlayer->getPos().getZ() < 1000 && getActiveScene() == getScenes()[0])
 	{
-		gameOver();
+		//cout << "has ganado" << endl;
+		//gameOver();
 	}
 }
 
