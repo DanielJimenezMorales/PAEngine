@@ -45,18 +45,20 @@ public:
 	void init();
 	void init(const string& file);
 
-	void render();
-	void update();
+	virtual void render();
+	virtual void update();
 	virtual void processKeyPressed(unsigned char key, int x, int y);
 	void processMouseMovement(int x, int y);
 	void processMouseClick(int button, int state, int x, int y);
 
+	milliseconds getInitialMilliseconds() { return initialMilliseconds; }
+	long getLastUpdatedTime() { return lastUpdatedTime; }
+	void setLastUpdatedTime(long newLastUpdatedTime) { this->lastUpdatedTime = newLastUpdatedTime; }
+	double getTimeIncrement() { return TIME_INCREMENT; }
+	int getUpdatePeriod() { return UPDATE_PERIOD; }
 	GameScene* getActiveScene() { return this->activeScene;}
 	void setActiveScene(GameScene* myScene) { this->activeScene = myScene; }
 	vector<GameScene*> getScenes() { return this->scenes; }
 	void setScenes(vector<GameScene*> myScenes){ this->scenes = myScenes; }
-
-	void empezarJuego();
-	void gameOver();
 };
 

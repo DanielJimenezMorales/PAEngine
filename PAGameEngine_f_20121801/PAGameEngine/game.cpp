@@ -41,8 +41,6 @@ public:
 
 void Game::init() {
 	srand(11);
-	//MyGame* myGameScene = new(nothrow) MyGame();
-
 	GameScene* mainScene = new(nothrow) GameScene(Vector3D(16, 12, 200));
 	/*
 	Text* pHola = new Text("Hola PA");
@@ -164,7 +162,6 @@ void Game::init() {
 	//secondaryScene->add(wall2);*/
 
 	this->scenes.push_back(secondaryScene);
-	this->activeScene = secondaryScene;
 
 	GameScene* gameOverScene = new(nothrow) GameScene();
 
@@ -177,7 +174,7 @@ void Game::init() {
 	gameOverScene->add(text2);
 
 	this->scenes.push_back(gameOverScene);
-
+	this->activeScene = secondaryScene;
 }
 /*
 void Game::init(const string& file)
@@ -253,19 +250,8 @@ void Game::init(const string& file)
 }*/
 
 void Game::render() {
-	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-
-	//Según la escena en la que estemos se renderizará una cámara distinta
-	if (this->activeScene == this->scenes[1] || this->activeScene == this->scenes[2])
-	{
-		this->activeScene->render(activeScene->getCamera());
-	}
-	else
-	{
-		this->activeScene->render(myPlayer->getPlayerCamera());
-	}
-	
-	//this->activeScene->render(activeScene->getCamera());
+	//Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
+	//this->activeScene->render(myPlayer->getPlayerCamera());
 }
 
 void Game::update() {
@@ -276,23 +262,6 @@ void Game::update() {
 	{
 		this->activeScene->update(TIME_INCREMENT);
 		this->lastUpdatedTime = currentTime.count() - this->initialMilliseconds.count();
-	}
-
-	//Colisiones
-	Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-	for (int i = 1; i < this->scenes[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
-	{
-		if (myPlayer->collisionDetectionAABB(static_cast<Obstacle*>(this->scenes[0]->getSolid(i))) == true)
-		{
-			myPlayer->setPos(Vector3D(this->scenes[0]->getSize().getX() / 2, 2, 90));
-			cout << "reset" << endl;
-		}
-	}
-
-	if (myPlayer->getPos().getZ() < 70)
-	{
-		cout << "Has ganado" << endl;
-		gameOver();
 	}
 }
 
@@ -322,29 +291,5 @@ void Game::processMouseMovement(int x, int y) {
 
 void Game::processMouseClick(int button, int state, int x, int y) {
 	this->activeScene->processMouseClick(button, state, x, y);
-}
-
-void Game::empezarJuego()
-{
-	if (this->activeScene == this->scenes[1] && this->scenes[0] != nullptr)
-	{
-		//Cambiamos a la escena del juego
-		this->activeScene = this->scenes[0];
-
-		//Comenzamos a mover al jugador
-		Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-		myPlayer->ModifySpeed(-1.0f);
-	}
-}
-
-void Game::gameOver()
-{
-	if (this->activeScene == this->scenes[0] && this->scenes[2] != nullptr)
-	{
-		this->activeScene = this->scenes[2];
-
-		Player* myPlayer = static_cast<Player*>(this->scenes[0]->getSolid(0));
-		myPlayer->ModifySpeed(0.0f);
-	}
 }
 
