@@ -13,7 +13,7 @@ void MyGame::render() {
 void MyGame::update() {
 
 	milliseconds currentTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
-
+	
 	if ((currentTime.count() - getInitialMilliseconds().count()) - getLastUpdatedTime() > getUpdatePeriod())
 	{
 		getActiveScene()->update(getTimeIncrement());
@@ -36,6 +36,8 @@ void MyGame::update() {
 		//cout << "has ganado" << endl;
 		gameOver();
 	}
+
+	
 }
 
 void MyGame::processKeyPressed(unsigned char key, int x, int y) {
@@ -58,6 +60,8 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 	case 'd':
 		if (getActiveScene() != nullptr)
 		{
+			cout << "empieza" << endl;
+			espera(1);
 			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
 			Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 			myPlayer->SideMovement(1.0f);

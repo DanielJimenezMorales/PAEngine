@@ -21,7 +21,7 @@
 #include "gameScene.h"
 #include "player.h"
 #include "obstacle.h"
-//#include "myGame.h"
+#include <time.h>
 #include <chrono>
 
 using namespace std::chrono;
@@ -33,13 +33,10 @@ class Game {
 	milliseconds initialMilliseconds;
 	long lastUpdatedTime;
 
-	/*GameScene* activeScene;
-	vector<GameScene*> scenes;*/
 	Scene* activeScene;
 	vector<Scene*> scenes;
 
 public:
-
 	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) {}
 
 	void init();
