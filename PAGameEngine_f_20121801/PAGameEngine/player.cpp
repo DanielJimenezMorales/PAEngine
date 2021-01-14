@@ -28,3 +28,9 @@ bool Player::collisionDetectionAABB(Obstacle* obstacle)
 		return false;
 	}
 }
+
+void Player::update(double dt)
+{
+	playerCamera->setPos(Vector3D(playerCamera->getPos().getX(), playerCamera->getPos().getY(), this->getPos().getZ() + 10));
+	Solid::update(dt);
+}

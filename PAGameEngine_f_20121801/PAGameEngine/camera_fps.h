@@ -27,4 +27,3 @@ public:
 		glRotated(this->getRot().getZ(), 0, 0, 1);
 	}
 };
-
