@@ -87,18 +87,18 @@ void Game::init() {
 	mainScene->add(bolt);*/
 
 	Player* player = new Player();
-	player->setPlayerPos(Vector3D(mainScene->getSize().getX() / 2, 2, 90));
+	player->setPlayerPos(Vector3D(mainScene->getSize().getX() / 2, 2, 0));
 	player->setSize(1);
 	//player->setVel(Vector3D(1, 0, 0));
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
 	mainScene->add(player);
 
 	Obstacle* obstacle = new Obstacle();
-	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, 83));
+	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, -10));
 	mainScene->add(obstacle);
 
 	Obstacle* obstacle2 = new Obstacle();
-	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, 83));
+	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
 	obstacle2->setColor(Vector3D(1,0.1,0.1));
 	mainScene->add(obstacle2);
 
@@ -108,7 +108,7 @@ void Game::init() {
 	//mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
 
 	Cuboid* terrain = new Cuboid();
-	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, 80));
+	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, -20));
 	terrain->setColor(Vector3D(0, 1, 0));
 	terrain->setHeight(0.1);
 	terrain->setLength(22);

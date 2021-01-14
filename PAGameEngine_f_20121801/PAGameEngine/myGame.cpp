@@ -7,18 +7,7 @@ void MyGame::clearScenes()
 }
 
 void MyGame::render() {
-	Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
-
-	//Según la escena en la que estemos se renderizará una cámara distinta
-	if (getActiveScene() == getScenes()[1] || getActiveScene() == getScenes()[2])
-	{
-		
-		getActiveScene()->render();
-	}
-	else
-	{
-		getActiveScene()->render();
-	}
+	getActiveScene()->render();
 }
 
 void MyGame::update() {
@@ -42,10 +31,10 @@ void MyGame::update() {
 		}
 	}
 
-	if (myPlayer->getPos().getZ() < 1000 && getActiveScene() == getScenes()[0])
+	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
 	{
 		//cout << "has ganado" << endl;
-		//gameOver();
+		gameOver();
 	}
 }
 

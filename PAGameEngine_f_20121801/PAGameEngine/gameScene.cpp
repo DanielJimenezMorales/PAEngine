@@ -7,8 +7,7 @@
 //
 void GameScene::render()
 {
-	getCamera()->render();
-	/*if (this->hasPlayer)
+	if (this->hasPlayer)
 	{
 		cout << "renderiza este" << endl;
 		Player* myPlayer = static_cast<Player*>(getSolid(0));
@@ -16,9 +15,10 @@ void GameScene::render()
 	}
 	else
 	{
+		//cout << "renderiza este" << endl;
 		getCamera()->render();
-	}*/
-
+	}
+	//getCamera()->render();
 	Composite::render();
 }
 
@@ -41,7 +41,7 @@ void GameScene::update(const double& dt) {
 			vel.setX(-vel.getX());
 			ps->setVel(vel);
 		}
-		if (pos.getZ() > this->getSize().getZ()) {
+		/*if (pos.getZ() > this->getSize().getZ()) {
 			pos.setZ(this->getSize().getZ() - 0.01);
 			ps->setPos(pos);
 			Vector3D vel = ps->getVel();
@@ -54,6 +54,6 @@ void GameScene::update(const double& dt) {
 			Vector3D vel = ps->getVel();
 			vel.setZ(-vel.getZ());
 			ps->setVel(vel);
-		}
+		}*/
 	}
 }
