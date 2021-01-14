@@ -26,7 +26,7 @@ void MyGame::update() {
 	{
 		if (myPlayer->collisionDetectionAABB(static_cast<Obstacle*>(getScenes()[0]->getSolid(i))) == true)
 		{
-			myPlayer->setPos(Vector3D(getScenes()[0]->getSize().getX() / 2, 2, 90));
+			myPlayer->setPos(Vector3D(getScenes()[0]->getSize().getX() / 2, 2, 0));
 			cout << "reset" << endl;
 		}
 	}
