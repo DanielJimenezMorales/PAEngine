@@ -1,13 +1,9 @@
 #include "gameScene.h"
 
-//CameraFPS* GameScene::getCamera()
-//{
-//	return this->camera;
-//}
-//
 void GameScene::render()
 {
-	if (this->hasPlayer)
+	Player* myPlayer = static_cast<Player*>(getSolid(0));
+	if (this->hasPlayer && cameraIsChange == false)
 	{
 		cout << "renderiza este" << endl;
 		Player* myPlayer = static_cast<Player*>(getSolid(0));
@@ -15,10 +11,9 @@ void GameScene::render()
 	}
 	else
 	{
-		//cout << "renderiza este" << endl;
 		getCamera()->render();
 	}
-	//getCamera()->render();
+
 	Composite::render();
 }
 
@@ -41,19 +36,5 @@ void GameScene::update(const double& dt) {
 			vel.setX(-vel.getX());
 			ps->setVel(vel);
 		}
-		/*if (pos.getZ() > this->getSize().getZ()) {
-			pos.setZ(this->getSize().getZ() - 0.01);
-			ps->setPos(pos);
-			Vector3D vel = ps->getVel();
-			vel.setZ(-vel.getZ());
-			ps->setVel(vel);
-		}
-		if (pos.getZ() < 0) {
-			pos.setZ(0.01);
-			ps->setPos(pos);
-			Vector3D vel = ps->getVel();
-			vel.setZ(-vel.getZ());
-			ps->setVel(vel);
-		}*/
 	}
 }

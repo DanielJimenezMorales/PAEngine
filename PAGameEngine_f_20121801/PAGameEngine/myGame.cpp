@@ -61,7 +61,6 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 		if (getActiveScene() != nullptr)
 		{
 			cout << "empieza" << endl;
-			espera(1);
 			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
 			Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 			myPlayer->SideMovement(1.0f);
@@ -78,6 +77,13 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 			//getScenes().clear();
 			this->clearScenes();
 			init();
+		}
+		break;
+	case '1':
+		GameScene * currentGameScene = static_cast<GameScene*>(getActiveScene());
+		if (currentGameScene->getHasPlayer())
+		{
+			currentGameScene->setCameraIsChange();
 		}
 		break;
 	}
