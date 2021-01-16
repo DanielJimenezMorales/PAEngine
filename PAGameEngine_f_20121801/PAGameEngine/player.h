@@ -23,6 +23,7 @@ public:
 		this->playerCamera->setPos(Vector3D(this->getPos().getX(), 6, this->getPos().getZ()));
 		//this->playerCamera->setRot(Vector3D(15, 0, 0));
 	}
+
 	CameraFPS* getPlayerCamera() { return this->playerCamera; }
 	Contador* getContador() { return this->contador; }
 	void setPlayerPos(Vector3D newPos) { this->setPos(newPos); this->playerCamera->setPos(Vector3D(newPos.getX(), 6, newPos.getZ() + 10));}

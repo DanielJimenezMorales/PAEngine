@@ -14,13 +14,18 @@ class Ranking
 	int sizeOfArray = 5;
 	int rankingPoints[5];
 	vector<FilaRanking*> filas;
+
+	FilaRanking* playerRow;
+
 public:
 	Ranking()
 	{
+		playerRow = new FilaRanking("USER", 23);
 		initRanking();
 	}
 
 	int getRankingPoints(int pos) { return this->filas[pos]->getTotalPoints(); }
+	void setPlayerName(string newName) { this->playerRow->setName(newName); }
 
 	void initRanking();
 	void addRow(FilaRanking* newRow) { this->filas.push_back(newRow); };
@@ -28,6 +33,6 @@ public:
 	bool escrituraEnRanking(string fileName);
 	void lecturaEnRanking(string fileName);
 	string showRanking();
-	void sortRanking(string playerName, int newPoints); //Ordenar ranking
+	void sortRanking(); //Ordenar ranking
 	void sortArray(FilaRanking* newPoints);
 };

@@ -41,6 +41,9 @@ public:
 
 void Game::init() {
 	srand(11);
+
+	
+
 	GameScene* mainScene = new(nothrow) GameScene(true);
 	mainScene->getCamera()->setPos(Vector3D(mainScene->getSize().getX() / 2, 20, 30)); //AL ROTAR LOS EJES CAMBIAN (EL Z ES EL Y Y VICEVERSA)
 	mainScene->getCamera()->setRot(Vector3D(90, 0, 0));

@@ -72,10 +72,9 @@ string Ranking::showRanking()
 	return output;
 }
 
-void Ranking::sortRanking(string playerName, int newPoints)
+void Ranking::sortRanking()
 {
-	FilaRanking* newRow = new FilaRanking(playerName, newPoints);
-	sortArray(newRow);
+	sortArray(playerRow);
 
 	/*for (int i = 0; i < output.size(); i++)
 	{

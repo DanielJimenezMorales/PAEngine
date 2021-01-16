@@ -9,7 +9,10 @@ class MyGame : public Game
 public:
 	MyGame() : Game()
 	{
-		
+		string userName = "";
+		cout << "Introduce tu nombre de jugador y pulsa ENTER para continuar" << endl;
+		cin >> userName;
+		ranking->setPlayerName(userName);
 	}
 	void clearScenes();
 	void render();
@@ -18,4 +21,3 @@ public:
 	void empezarJuego();
 	void gameOver();
 };
-

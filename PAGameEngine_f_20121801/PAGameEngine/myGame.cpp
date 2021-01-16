@@ -104,9 +104,9 @@ void MyGame::gameOver()
 {
 	if (getActiveScene() == getScenes()[0] && getScenes()[2] != nullptr)
 	{
-		ranking->sortRanking("Marioo", 12);
-		//cout << ranking->showRanking() << endl;
+		ranking->sortRanking();
 		ranking->escrituraEnRanking("ranking.txt");
+
 		//TEXTO RANKING
 		string a = ranking->getRow(0)->getPlayerName();
 		string b = to_string(ranking->getRankingPoints(0));
@@ -145,9 +145,8 @@ void MyGame::gameOver()
 
 		setActiveScene(getScenes()[2]);
 
-		
-
 		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 		myPlayer->ModifySpeed(0.0f);
+		myPlayer->SideMovement(0.0f);
 	}
 }
