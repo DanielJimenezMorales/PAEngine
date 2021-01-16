@@ -3,6 +3,7 @@
 #include "contador.h"
 #include "camera_fps.h"
 #include "obstacle.h"
+
 class Player : public Cube
 {
 	Contador* contador = new Contador();
@@ -10,10 +11,14 @@ class Player : public Cube
 	float speedMultiplier;
 	Vector3D minPoint;
 	Vector3D maxPoint;
+
+	int collisionNumber;
+
 public:
 	Player() : Cube()
 	{
 		speedMultiplier = 1.0f;
+		collisionNumber = 0;
 		this->playerCamera = new CameraFPS();
 		this->playerCamera->setPos(Vector3D(this->getPos().getX(), 6, this->getPos().getZ()));
 		//this->playerCamera->setRot(Vector3D(15, 0, 0));

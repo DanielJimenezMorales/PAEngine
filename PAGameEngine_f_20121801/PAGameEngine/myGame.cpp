@@ -33,7 +33,6 @@ void MyGame::update() {
 
 	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
 	{
-		//cout << "has ganado" << endl;
 		gameOver();
 	}
 
@@ -60,7 +59,6 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 	case 'd':
 		if (getActiveScene() != nullptr)
 		{
-			cout << "empieza" << endl;
 			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
 			Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 			myPlayer->SideMovement(1.0f);
@@ -74,7 +72,6 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 		}
 		else if (getActiveScene() == getScenes()[2])
 		{
-			//getScenes().clear();
 			this->clearScenes();
 			init();
 		}
@@ -107,7 +104,48 @@ void MyGame::gameOver()
 {
 	if (getActiveScene() == getScenes()[0] && getScenes()[2] != nullptr)
 	{
+		ranking->sortRanking("Marioo", 12);
+		//cout << ranking->showRanking() << endl;
+		ranking->escrituraEnRanking("ranking.txt");
+		//TEXTO RANKING
+		string a = ranking->getRow(0)->getPlayerName();
+		string b = to_string(ranking->getRankingPoints(0));
+		string rankingInfo = "1 " + a + " " + b;
+		Text* primero = new Text(rankingInfo);
+		primero->setPos(Vector3D(2.5, 8, 0));
+		getScenes()[2]->add(primero);
+
+		a = ranking->getRow(1)->getPlayerName();
+		b = to_string(ranking->getRankingPoints(1));
+		rankingInfo = "2 " + a + " " + b;
+		Text* segundo = new Text(rankingInfo);
+		segundo->setPos(Vector3D(2.5, 7, 0));
+		getScenes()[2]->add(segundo);
+
+		a = ranking->getRow(2)->getPlayerName();
+		b = to_string(ranking->getRankingPoints(2));
+		rankingInfo = "3 " + a + " " + b;
+		Text* tercero = new Text(rankingInfo);
+		tercero->setPos(Vector3D(2.5, 6, 0));
+		getScenes()[2]->add(tercero);
+
+		a = ranking->getRow(3)->getPlayerName();
+		b = to_string(ranking->getRankingPoints(3));
+		rankingInfo = "4 " + a + " " + b;
+		Text* cuarto = new Text(rankingInfo);
+		cuarto->setPos(Vector3D(2.5, 5, 0));
+		getScenes()[2]->add(cuarto);
+
+		a = ranking->getRow(4)->getPlayerName();
+		b = to_string(ranking->getRankingPoints(4));
+		rankingInfo = "5 " + a + " " + b;
+		Text* quinto = new Text(rankingInfo);
+		quinto->setPos(Vector3D(2.5, 4, 0));
+		getScenes()[2]->add(quinto);
+
 		setActiveScene(getScenes()[2]);
+
+		
 
 		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 		myPlayer->ModifySpeed(0.0f);

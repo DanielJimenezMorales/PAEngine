@@ -23,6 +23,8 @@
 #include "obstacle.h"
 #include <time.h>
 #include <chrono>
+#include "ranking.h"
+#include "filaRanking.h"
 
 using namespace std::chrono;
 using namespace std;
@@ -37,7 +39,8 @@ class Game {
 	vector<Scene*> scenes;
 
 public:
-	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) {}
+	Ranking* ranking;
+	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) { ranking = new Ranking(); }
 
 	void init();
 	void init(const string& file);

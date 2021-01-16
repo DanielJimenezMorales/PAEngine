@@ -168,17 +168,17 @@ void Game::init() {
 	GameScene* gameOverScene = new(nothrow) GameScene();
 
 	Text* text1 = new Text("GAME OVER");
-	text1->setPos(Vector3D(2.5, 9, 0));
+	text1->setPos(Vector3D(2.5, 10, 0));
 	gameOverScene->add(menuText);
 
 	Text* text2 = new Text("PULSA X PARA CONTINUAR");
-	text2->setPos(Vector3D(2.6, 5, 0));
+	text2->setPos(Vector3D(2.6, 2, 0));
 	gameOverScene->add(text2);
 
 	this->scenes.push_back(gameOverScene);
 	this->activeScene = secondaryScene;
 }
-/*
+
 void Game::init(const string& file)
 {
 	LoaderOBJ::setBasePath(".\\3dModels");
@@ -249,7 +249,7 @@ void Game::init(const string& file)
 	{
 		cout << "Error leyendo archivo: " << file << endl;
 	}
-}*/
+}
 
 void Game::render() {
 	//Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));

@@ -1,12 +1,16 @@
 #pragma once
+
 #include "game.h"
 
 
 class MyGame : public Game
 {
-
+	
 public:
-	MyGame() : Game() {}
+	MyGame() : Game()
+	{
+		
+	}
 	void clearScenes();
 	void render();
 	void update();

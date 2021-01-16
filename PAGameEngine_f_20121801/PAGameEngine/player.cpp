@@ -20,6 +20,8 @@ bool Player::collisionDetectionAABB(Obstacle* obstacle)
 		this->getMaxPoint().getZ() > obstacle->getPos().getZ() - 0.5)
 	{
 		cout << "colision" << endl;
+		collisionNumber++;
+		cout << collisionNumber << endl;
 		return true;
 	}
 	else {

@@ -111,6 +111,15 @@
     <ClCompile Include="obstacle.cpp">
       <Filter>Archivos de origen\elements</Filter>
     </ClCompile>
+    <ClCompile Include="ranking.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="filaRanking.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -184,6 +193,15 @@
     </ClInclude>
     <ClInclude Include="myGame.h">
       <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="ranking.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="filaRanking.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

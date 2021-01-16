@@ -148,6 +148,7 @@
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="cuboid.cpp" />
     <ClCompile Include="cylinder.cpp" />
+    <ClCompile Include="filaRanking.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="light.cpp" />
@@ -157,11 +158,13 @@
     <ClCompile Include="myGame.cpp" />
     <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="ranking.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="solid.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="teapot.cpp" />
     <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -175,6 +178,7 @@
     <ClInclude Include="cube.h" />
     <ClInclude Include="cuboid.h" />
     <ClInclude Include="cylinder.h" />
+    <ClInclude Include="filaRanking.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="light.h" />
@@ -183,12 +187,14 @@
     <ClInclude Include="myGame.h" />
     <ClInclude Include="obstacle.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="ranking.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="solid.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="teapot.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="triangle.h" />
+    <ClInclude Include="util.h" />
     <ClInclude Include="vector3d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

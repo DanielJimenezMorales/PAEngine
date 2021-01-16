@@ -5,7 +5,6 @@ void GameScene::render()
 	Player* myPlayer = static_cast<Player*>(getSolid(0));
 	if (this->hasPlayer && cameraIsChange == false)
 	{
-		cout << "renderiza este" << endl;
 		Player* myPlayer = static_cast<Player*>(getSolid(0));
 		myPlayer->getPlayerCamera()->render();
 	}
