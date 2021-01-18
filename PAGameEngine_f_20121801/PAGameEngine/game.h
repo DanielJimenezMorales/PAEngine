@@ -62,5 +62,10 @@ public:
 	void setActiveScene(Scene* myScene) { this->activeScene = myScene; }
 	vector<Scene*> getScenes() { return this->scenes; }
 	void setScenes(vector<Scene*> myScenes){ this->scenes = myScenes; }
+
+
+	//QUITAR MAS TARDE
+	vector<Vector3D*> spawnPositions;
+	void generateRandomEnemies(float limitX, float minLimitZ, float maxLimitZ, float xDistanceBetweenSpawnPos, float zDistanceBetweenSpawnPos, float spawnProbability);
 };
 

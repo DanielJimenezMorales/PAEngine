@@ -97,6 +97,10 @@ void Game::init() {
 	//player->setColor(Vector3D(0.1, 0.2, 0.8));
 	mainScene->add(player);
 
+	this->generateRandomEnemies(8.0f + 7.5f, -10.0f, 200.0f, 3.0f, 6.0f, 0.5f);
+	//////////////////
+	//ENEMIGOS
+	//////////////////
 	Obstacle* obstacle = new Obstacle();
 	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, -10));
 	mainScene->add(obstacle);
@@ -105,6 +109,17 @@ void Game::init() {
 	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
 	mainScene->add(obstacle2);
 
+	Obstacle* obstacle3 = obstacle->clone();
+	obstacle3->setPos(Vector3D((mainScene->getSize().getX() / 2) - 2.9, 2, -35));
+	mainScene->add(obstacle3);
+
+	Obstacle* obstacle4 = obstacle->clone();
+	obstacle4->setPos(Vector3D((mainScene->getSize().getX() / 2) + 7.5, 2, -10));
+	mainScene->add(obstacle4);
+
+	Obstacle* obstacle5 = obstacle->clone();
+	obstacle5->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -10));
+	mainScene->add(obstacle5);
 	/*Obstacle* obstacle2 = new Obstacle();
 	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
 	obstacle2->setColor(Vector3D(1,0.1,0.1));
@@ -301,3 +316,14 @@ void Game::processMouseClick(int button, int state, int x, int y) {
 	this->activeScene->processMouseClick(button, state, x, y);
 }
 
+void Game::generateRandomEnemies(float limitX, float minLimitZ, float maxLimitZ, float xDistanceBetweenSpawnPos, float zDistanceBetweenSpawnPos, float spawnProbability)
+{
+	for (float z = minLimitZ; z <= maxLimitZ; z = z + zDistanceBetweenSpawnPos)
+	{
+		for (float x = limitX; x >= -limitX; x = x - xDistanceBetweenSpawnPos)
+		{
+			this->spawnPositions.push_back(&Vector3D(x, 2.0, z));
+			cout << x << ", " << 2.0 << ", " << z << endl;
+		}
+	}
+}
