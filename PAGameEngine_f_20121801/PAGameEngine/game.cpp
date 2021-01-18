@@ -42,9 +42,8 @@ public:
 void Game::init() {
 	srand(11);
 
-	
-
 	GameScene* mainScene = new(nothrow) GameScene(true);
+	mainScene->setSize(Vector3D(16, 10, 10));
 	mainScene->getCamera()->setPos(Vector3D(mainScene->getSize().getX() / 2, 20, 30)); //AL ROTAR LOS EJES CAMBIAN (EL Z ES EL Y Y VICEVERSA)
 	mainScene->getCamera()->setRot(Vector3D(90, 0, 0));
 	/*
@@ -102,10 +101,14 @@ void Game::init() {
 	obstacle->setPos(Vector3D((mainScene->getSize().getX() / 2) + 1.2, 2, -10));
 	mainScene->add(obstacle);
 
-	Obstacle* obstacle2 = new Obstacle();
+	Obstacle* obstacle2 = obstacle->clone();
+	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
+	mainScene->add(obstacle2);
+
+	/*Obstacle* obstacle2 = new Obstacle();
 	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
 	obstacle2->setColor(Vector3D(1,0.1,0.1));
-	mainScene->add(obstacle2);
+	mainScene->add(obstacle2);*/
 
 	Light* sun = new Light(Vector3D(0, 1, 0));
 	mainScene->add(sun);
@@ -113,11 +116,11 @@ void Game::init() {
 	//mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
 
 	Cuboid* terrain = new Cuboid();
-	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, -20));
+	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, -250));
 	terrain->setColor(Vector3D(0, 1, 0));
 	terrain->setHeight(0.1);
 	terrain->setLength(22);
-	terrain->setWidth(100);
+	terrain->setWidth(500);
 	mainScene->add(terrain);
 
 	this->scenes.push_back(mainScene);

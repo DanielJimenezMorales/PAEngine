@@ -27,16 +27,20 @@ void MyGame::update() {
 		if (myPlayer->collisionDetectionAABB(static_cast<Obstacle*>(getScenes()[0]->getSolid(i))) == true)
 		{
 			myPlayer->setPos(Vector3D(getScenes()[0]->getSize().getX() / 2, 2, 0));
-			cout << "reset" << endl;
+			myPlayer->getContador()->getDamaged();
+			if (myPlayer->getContador()->getLifesLeft() == 0)
+			{
+				gameOver();
+			}
+
+			cout << myPlayer->getContador()->getLifesLeft() << endl;
 		}
 	}
 
-	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
+	if (myPlayer->getPos().getZ() < -100 && getActiveScene() == getScenes()[0])
 	{
 		gameOver();
 	}
-
-	
 }
 
 void MyGame::processKeyPressed(unsigned char key, int x, int y) {

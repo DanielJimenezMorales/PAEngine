@@ -6,18 +6,16 @@ using namespace std::chrono;
 
 class Contador : public Text
 {
-	int min;
-	int seg;
-	int maxMin;
+	int maxLifes;
+	int lifesLeft;
+
 public:
-	Contador() : Text()
+	Contador(int ml = 3) : maxLifes(ml), Text()
 	{
-		maxMin = 2;
-		min = maxMin;
-		seg = 0;
+		lifesLeft = ml;
 	}
 
-	void empezarContador();
-	void update();
+	int getLifesLeft() { return this->lifesLeft; }
+	void getDamaged();
 };
 

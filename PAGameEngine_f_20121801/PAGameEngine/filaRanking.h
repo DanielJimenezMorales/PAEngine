@@ -13,5 +13,9 @@ public:
 	void setName(string newName) { this->name = newName; }
 	int getTotalPoints() { return this->totalPoints; }
 	void setTotalPoints(int newPoints) { this->totalPoints = newPoints; }
+
+	FilaRanking* clone() {
+		return new FilaRanking(*this);
+	}
 };
 

@@ -24,6 +24,13 @@ public:
 		initRanking();
 	}
 
+	virtual ~Ranking() {
+		for (FilaRanking* fl : filas)
+			delete fl;
+		filas.clear();
+		delete playerRow;
+	}
+
 	int getRankingPoints(int pos) { return this->filas[pos]->getTotalPoints(); }
 	void setPlayerName(string newName) { this->playerRow->setName(newName); }
 
