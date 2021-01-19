@@ -14,6 +14,8 @@ void GameScene::render()
 	}
 
 	Composite::render();
+	obstacles->render();
+	collectables->render();
 }
 
 void GameScene::update(const double& dt) {

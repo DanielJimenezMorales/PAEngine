@@ -22,9 +22,9 @@ void MyGame::update() {
 
 	//Colisiones
 	Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
-	for (int i = 1; i < getScenes()[0]->getSolids().size() - 2; i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
+	for (int i = 0; i < static_cast<GameScene*>(getScenes()[0])->getObstacleArray().size(); i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
 	{
-		if (myPlayer->collisionDetectionAABB(static_cast<Obstacle*>(getScenes()[0]->getSolid(i))) == true)
+		if (myPlayer->collisionDetectionAABB(static_cast<Solid*>(static_cast<GameScene*>(getScenes()[0])->getObstacles(i))) == true)
 		{
 			myPlayer->setPos(Vector3D(getScenes()[0]->getSize().getX() / 2, 2, 0));
 			myPlayer->getContador()->getDamaged();
@@ -37,8 +37,24 @@ void MyGame::update() {
 		}
 	}
 
-	if (myPlayer->getPos().getZ() < -100 && getActiveScene() == getScenes()[0])
+	for (int i = 0; i < static_cast<GameScene*>(getScenes()[0])->getCollectableArray().size(); i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
 	{
+		if (myPlayer->collisionDetectionAABB(static_cast<Solid*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))) == true)
+		{
+			if (static_cast<Collectable*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))->borrado == false)
+			{
+				myPlayer->addPoints(1);
+				cout << "Collectable" << endl;
+				static_cast<Collectable*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))->borrado = true;
+			}
+		}
+	}
+
+	//BORRAR OBJETOS(VER FOTO)
+
+	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
+	{
+		ranking->setPlayerPoints(myPlayer->getPoints());
 		gameOver();
 	}
 }

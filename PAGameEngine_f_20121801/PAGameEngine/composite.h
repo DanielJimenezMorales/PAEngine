@@ -30,7 +30,7 @@ public:
 			throw runtime_error("Out of range index, with value " + to_string(i) + " at Composite::getSolid()");
 		return solids[i]; 
 	}
-	void add(Solid* ps) { solids.push_back(ps); }
+	void add(Solid* ps) { solids.push_back(ps);}
 	void render();
 	void update(double &dt);
 	friend ostream& operator<<(ostream& os, const Composite& c);

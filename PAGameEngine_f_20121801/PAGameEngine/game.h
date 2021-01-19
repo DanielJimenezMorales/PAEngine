@@ -25,6 +25,7 @@
 #include <chrono>
 #include "ranking.h"
 #include "filaRanking.h"
+#include "collectable.h"
 
 using namespace std::chrono;
 using namespace std;
@@ -65,7 +66,7 @@ public:
 
 
 	//QUITAR MAS TARDE
-	vector<Vector3D*> spawnPositions;
-	void generateRandomEnemies(float limitX, float minLimitZ, float maxLimitZ, float xDistanceBetweenSpawnPos, float zDistanceBetweenSpawnPos, float spawnProbability);
+	vector<Vector3D> spawnPositions;
+	void generateRandomEnemies(Scene* scene, float limitX, float minLimitZ, float maxLimitZ, float xDistanceBetweenSpawnPos, float zDistanceBetweenSpawnPos, float spawnProbability);
 };
 

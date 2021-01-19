@@ -20,7 +20,7 @@ class Ranking
 public:
 	Ranking()
 	{
-		playerRow = new FilaRanking("USER", 23);
+		playerRow = new FilaRanking("USER", 0);
 		initRanking();
 	}
 
@@ -33,6 +33,8 @@ public:
 
 	int getRankingPoints(int pos) { return this->filas[pos]->getTotalPoints(); }
 	void setPlayerName(string newName) { this->playerRow->setName(newName); }
+	int getPlayerPoints() { return this->playerRow->getTotalPoints(); }
+	void setPlayerPoints(int newPoints) { this->playerRow->setTotalPoints(newPoints); }
 
 	void initRanking();
 	void addRow(FilaRanking* newRow) { this->filas.push_back(newRow); };

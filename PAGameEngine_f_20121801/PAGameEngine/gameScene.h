@@ -4,6 +4,8 @@
 
 class GameScene : public Scene
 {
+	Composite* obstacles;
+	Composite* collectables;
 	Vector3D size;
 	double mx, my;
 	bool hasPlayer;
@@ -13,11 +15,21 @@ public:
 	GameScene(bool hp = false) : hasPlayer(hp), Scene()
 	{
 		cameraIsChange = false;
+		obstacles = new Composite();
+		collectables = new Composite();
 	}
 
 	GameScene* clone() {
 		return new GameScene(*this);
 	}
+
+	vector<Solid*> getObstacleArray() { return this->obstacles->getSolids(); }
+	Solid* getObstacles(int i) {return this->obstacles->getSolid(i);}
+	void addObstacle(Solid* ps) { this->obstacles->add(ps); }
+
+	vector<Solid*> getCollectableArray() { return this->collectables->getSolids(); }
+	Solid* getCollectables(int i) { return this->collectables->getSolid(i); }
+	void addCollectable(Solid* ps) { this->collectables->add(ps); }
 
 	void setCameraIsChange() { cameraIsChange = !cameraIsChange; }
 	bool getHasPlayer() { return this->hasPlayer; }
