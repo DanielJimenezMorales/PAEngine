@@ -15,6 +15,8 @@ public:
 		lifesLeft = ml;
 	}
 
+	~Contador() {}
+
 	int getLifesLeft() { return this->lifesLeft; }
 	void getDamaged();
 };

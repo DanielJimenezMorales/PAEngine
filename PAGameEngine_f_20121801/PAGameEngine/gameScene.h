@@ -19,6 +19,12 @@ public:
 		collectables = new Composite();
 	}
 
+	~GameScene()
+	{
+		delete obstacles;
+		delete collectables;
+	}
+
 	GameScene* clone() {
 		return new GameScene(*this);
 	}

@@ -40,10 +40,8 @@ class Game {
 	vector<Scene*> scenes;
 
 public:
-	//
-	Ranking* ranking;
-	//
-	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) { ranking = new Ranking(); }
+
+	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) {}
 
 	void init();
 	void init(const string& file);

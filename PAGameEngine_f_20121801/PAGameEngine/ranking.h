@@ -26,7 +26,9 @@ public:
 
 	virtual ~Ranking() {
 		for (FilaRanking* fl : filas)
+		{
 			delete fl;
+		}
 		filas.clear();
 		delete playerRow;
 	}

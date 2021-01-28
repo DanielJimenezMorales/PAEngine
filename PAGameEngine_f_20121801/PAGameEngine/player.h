@@ -24,6 +24,12 @@ public:
 		//this->playerCamera->setRot(Vector3D(15, 0, 0));
 	}
 
+	~Player()
+	{
+		delete contador;
+		delete playerCamera;
+	}
+
 	int getPoints() { return this->pointsNumber; }
 	void addPoints(int x) { this->pointsNumber += x; };
 	CameraFPS* getPlayerCamera() { return this->playerCamera; }
