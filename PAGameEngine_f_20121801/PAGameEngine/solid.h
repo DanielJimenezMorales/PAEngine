@@ -14,6 +14,7 @@ class Solid
 public:
 	Solid( double d = 1.0, Vector3D p = Vector3D(0, 0, 0), Vector3D v = Vector3D(0, 0, 0),
 		Vector3D c = Vector3D(1, 1, 0))	: size(d), pos(p), vel(Vector3D()), rot(Vector3D()), rotVel(Vector3D()), color(c) {}
+	virtual ~Solid() {}
 	inline double getSize() { return size; }
 	inline Vector3D getPos() { return pos; }
 	inline Vector3D getVel() { return vel; }

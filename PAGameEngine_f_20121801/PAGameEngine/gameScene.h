@@ -6,6 +6,7 @@ class GameScene : public Scene
 {
 	Composite* obstacles;
 	Composite* collectables;
+	Composite* deleteObjects;
 	Vector3D size;
 	double mx, my;
 	bool hasPlayer;
@@ -17,12 +18,14 @@ public:
 		cameraIsChange = false;
 		obstacles = new Composite();
 		collectables = new Composite();
+		deleteObjects = new Composite();
 	}
 
 	~GameScene()
 	{
 		delete obstacles;
 		delete collectables;
+		delete deleteObjects;
 	}
 
 	GameScene* clone() {
@@ -36,6 +39,11 @@ public:
 	vector<Solid*> getCollectableArray() { return this->collectables->getSolids(); }
 	Solid* getCollectables(int i) { return this->collectables->getSolid(i); }
 	void addCollectable(Solid* ps) { this->collectables->add(ps); }
+	void delCollectable(int pos) { this->collectables->deleteAt(pos); }
+
+	vector<Solid*> getDeleteObstacleArray() { return this->deleteObjects->getSolids(); }
+	Solid* getDeleteObstacles(int i) { return this->deleteObjects->getSolid(i); }
+	void addDeleteObstacle(Solid* ps) { this->deleteObjects->add(ps); }
 
 	void setCameraIsChange() { cameraIsChange = !cameraIsChange; }
 	bool getHasPlayer() { return this->hasPlayer; }

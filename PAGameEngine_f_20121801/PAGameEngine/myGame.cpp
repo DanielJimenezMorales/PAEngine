@@ -41,15 +41,19 @@ void MyGame::update() {
 	{
 		if (myPlayer->collisionDetectionAABB(static_cast<Solid*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))) == true)
 		{
-			if (static_cast<Collectable*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))->borrado == false)
-			{
-				myPlayer->addPoints(1);
-				cout << "Collectable" << endl;
-				static_cast<Collectable*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))->borrado = true;
-			}
+			cout << static_cast<GameScene*>(getScenes()[0])->getCollectableArray().size() << endl;
+
+			static_cast<GameScene*>(getScenes()[0])->addDeleteObstacle(static_cast<GameScene*>(getScenes()[0])->getCollectables(i));
+			static_cast<GameScene*>(getScenes()[0])->delCollectable(i);
 		}
 	}
 
+	vector<Solid*>* v = &(static_cast<GameScene*>(getScenes()[0])->getDeleteObstacleArray());
+	for (int i = 0; i < v->size(); i++)
+	{
+		delete v->at(i);
+	}
+	static_cast<GameScene*>(getScenes()[0])->getDeleteObstacleArray().clear();
 	//BORRAR OBJETOS(VER FOTO)
 
 	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])

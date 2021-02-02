@@ -31,6 +31,9 @@ public:
 		return solids[i]; 
 	}
 	void add(Solid* ps) { solids.push_back(ps);}
+	//
+	void deleteAt(int pos) { solids.erase(solids.begin() + pos); }
+	//
 	void render();
 	void update(double &dt);
 	friend ostream& operator<<(ostream& os, const Composite& c);
