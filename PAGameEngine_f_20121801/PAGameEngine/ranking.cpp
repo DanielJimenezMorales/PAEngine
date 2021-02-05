@@ -62,24 +62,9 @@ void Ranking::lecturaEnRanking(string fileName)
 	}
 }
 
-string Ranking::showRanking()
-{
-	string output = "";
-	for (int i = 0; i < sizeOfArray; i++)
-	{
-		output += " " + to_string(rankingPoints[i]);
-	}
-	return output;
-}
-
 void Ranking::sortRanking()
 {
 	sortArray(playerRow);
-
-	/*for (int i = 0; i < output.size(); i++)
-	{
-		rankingPoints[i] = output2[i];
-	}*/
 }
 
 void Ranking::sortArray(FilaRanking* newPoints)

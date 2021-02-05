@@ -24,7 +24,7 @@ public:
 		initRanking();
 	}
 
-	virtual ~Ranking() {
+	~Ranking() {
 		for (FilaRanking* fl : filas)
 		{
 			delete fl;
@@ -43,7 +43,6 @@ public:
 	FilaRanking* getRow(int pos) { return filas[pos]; }
 	bool escrituraEnRanking(string fileName);
 	void lecturaEnRanking(string fileName);
-	string showRanking();
-	void sortRanking(); //Ordenar ranking
+	void sortRanking();
 	void sortArray(FilaRanking* newPoints);
 };

@@ -46,56 +46,12 @@ void Game::init() {
 	mainScene->setSize(Vector3D(16, 10, 10));
 	mainScene->getCamera()->setPos(Vector3D(mainScene->getSize().getX() / 2, 20, 30)); //AL ROTAR LOS EJES CAMBIAN (EL Z ES EL Y Y VICEVERSA)
 	mainScene->getCamera()->setRot(Vector3D(90, 0, 0));
-	/*
-	Text* pHola = new Text("Hola PA");
-	pHola->setVel(Vector3D(0, 0.5, 0.5));
-	mainScene->add(pHola)
-	Cube* cube0 = new Cube();
-	cube0->setPos(Vector3D(0, 0, 0));
-	cube0->setVel(Vector3D(1, 0, 0));
-	cube0->setRot(Vector3D(45, 33, 27));
-	cube0->setRotVel(Vector3D(15, 23, 12));
-	cube0->setColor(Vector3D(0.1, 0.2, 0.8));
-	mainScene->add(cube0);
-
-	LoaderOBJ::setBasePath(".\\3dModels");
-	LoaderOBJ lobj(0.5);
-	ModelMeshTriangles* diamond = new ModelMeshTriangles();
-	lobj.loadModel("Diamond.obj");
-	*diamond = lobj.getModelMeshTriangles();
-	diamond->setColor(Vector3D(1,1,1));
-	diamond->setPos(Vector3D(2, 4, 3));
-	diamond->setVel(Vector3D(1, 0, 1));
-	diamond->setRotVel(Vector3D(0, 23, 0));
-	mainScene->add(diamond);
-
-	LoaderOBJ lobj2(1.3);
-	ModelMeshTriangles* gearCoin = new ModelMeshTriangles();
-	lobj2.loadModel("GearCoin.obj");
-	*gearCoin = lobj2.getModelMeshTriangles();
-	gearCoin->setColor(Vector3D(0.3, 1, 0.0));
-	gearCoin->setPos(Vector3D(1, 3, 2));
-	gearCoin->setVel(Vector3D(0.2, 0, 0));
-	gearCoin->setRot(Vector3D(30, 30, 0));
-	gearCoin->setRotVel(Vector3D(15, 5, 0));
-	mainScene->add(gearCoin);
-
-	LoaderOBJ lobj3(2);
-	ModelMeshTriangles* bolt = new ModelMeshTriangles();
-	lobj3.loadModel("Bolt.obj");
-	*bolt = lobj3.getModelMeshTriangles();
-	bolt->setColor(Vector3D(1, 0.4, 0.0));
-	bolt->setPos(Vector3D(2, 1, 1));
-	bolt->setVel(Vector3D(0, 1, 0));
-	bolt->setRotVel(Vector3D(0, 50, 0));
-	mainScene->add(bolt);*/
 
 	Player* player = new Player();
 	player->setPlayerPos(Vector3D(mainScene->getSize().getX() / 2, 2, 0));
 	player->setSize(1);
-	//player->setVel(Vector3D(1, 0, 0));
-	//player->setColor(Vector3D(0.1, 0.2, 0.8));
 	mainScene->add(player);
+
 	//////////////////
 	//ENEMIGOS
 	//////////////////
@@ -187,8 +143,6 @@ void Game::init() {
 	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -27));
 	mainScene->addObstacle(obstacle22);
 
-	//////
-
 	Collectable* coin = new Collectable();
 	coin->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -10));
 	mainScene->addCollectable(coin);
@@ -200,15 +154,9 @@ void Game::init() {
 	Collectable* coin3 = coin->clone();
 	coin3->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -20));
 	mainScene->addCollectable(coin3);
-	/*Obstacle* obstacle2 = new Obstacle();
-	obstacle2->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.2, 2, -15));
-	obstacle2->setColor(Vector3D(1,0.1,0.1));
-	mainScene->add(obstacle2);*/
 
 	Light* sun = new Light(Vector3D(0, 1, 0));
 	mainScene->add(sun);
-
-	//mainScene->getCamera()->setPos(Vector3D(0, 6, 15));
 
 	Cuboid* terrain = new Cuboid();
 	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, -250));
@@ -246,22 +194,6 @@ void Game::init() {
 	floor->setLength(10);
 	floor->setWidth(10);
 	secondaryScene->add(floor);
-	
-	/*Cuboid* wall = new Cuboid();
-	wall->setPos(Vector3D(0, 5, 5));
-	wall->setColor(Vector3D(0.2, 0.2, 0.2));
-	wall->setHeight(10);
-	wall->setLength(0.1);
-	wall->setWidth(10);
-	//secondaryScene->add(wall);
-
-	Cuboid* wall2 = new Cuboid();
-	wall2->setPos(Vector3D(5, 5, 0));
-	wall2->setColor(Vector3D(0.4, 0.7, 0.9));
-	wall2->setHeight(10);
-	wall2->setLength(10);
-	wall2->setWidth(0.1);
-	//secondaryScene->add(wall2);*/
 
 	this->scenes.push_back(secondaryScene);
 

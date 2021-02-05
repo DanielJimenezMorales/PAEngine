@@ -10,6 +10,7 @@ class FilaRanking
 public:
 	FilaRanking(string pn, int tp = 0) : name(pn), totalPoints(tp) {}
 	~FilaRanking() {}
+
 	string getPlayerName() { return this->name; }
 	void setName(string newName) { this->name = newName; }
 	int getTotalPoints() { return this->totalPoints; }

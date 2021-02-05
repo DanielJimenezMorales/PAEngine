@@ -2,7 +2,6 @@
 
 #include "game.h"
 
-
 class MyGame : public Game
 {
 	Ranking* ranking;
@@ -10,15 +9,21 @@ public:
 	MyGame() : Game()
 	{
 		ranking = new Ranking();
-		string userName = "";
-		cout << "Introduce tu nombre de jugador y pulsa ENTER para continuar" << endl;
-		cin >> userName;
-		ranking->setPlayerName(userName);
+		askForPlayerName();
 	}
+
+	~MyGame() 
+	{
+		delete ranking;
+	}
+
+	void askForPlayerName();
 	void clearScenes();
 	void render();
 	void update();
+	void checkCollisions();
+	bool checkWin(float winDistance);
 	void processKeyPressed(unsigned char key, int x, int y);
 	void empezarJuego();
-	void gameOver();
+	void winGame();
 };

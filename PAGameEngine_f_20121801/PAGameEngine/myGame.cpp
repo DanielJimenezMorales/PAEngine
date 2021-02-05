@@ -1,5 +1,15 @@
 #include "myGame.h"
 
+void MyGame::askForPlayerName()
+{
+	string userName = "";
+	cout << "-----------------------------------------------------------" << endl;
+	cout << "Introduce tu nombre de jugador y pulsa ENTER para continuar" << endl;
+	cout << "-----------------------------------------------------------" << endl;
+	cin >> userName;
+	ranking->setPlayerName(userName);
+}
+
 void MyGame::clearScenes()
 {
 	vector<Scene*> newVector;
@@ -20,7 +30,18 @@ void MyGame::update() {
 		setLastUpdatedTime(currentTime.count() - getInitialMilliseconds().count());
 	}
 
-	//Colisiones
+	checkCollisions();
+
+	if (checkWin(100))
+	{
+		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
+		ranking->setPlayerPoints(myPlayer->getPoints());
+		winGame();
+	}
+}
+
+void MyGame::checkCollisions()
+{
 	Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 	for (int i = 0; i < static_cast<GameScene*>(getScenes()[0])->getObstacleArray().size(); i++) //-2 porque la luz y el terreno siempre irán al final y no queremos comprobar colisiones con ellos
 	{
@@ -30,7 +51,7 @@ void MyGame::update() {
 			myPlayer->getContador()->getDamaged();
 			if (myPlayer->getContador()->getLifesLeft() == 0)
 			{
-				gameOver();
+				winGame();
 			}
 
 			cout << myPlayer->getContador()->getLifesLeft() << endl;
@@ -54,11 +75,18 @@ void MyGame::update() {
 		delete v->at(i);
 	}
 	static_cast<GameScene*>(getScenes()[0])->getDeleteObstacleArray().clear();
+}
 
-	if (myPlayer->getPos().getZ() < -100 && getActiveScene() == getScenes()[0])
+bool MyGame::checkWin(float winDistance)
+{
+	Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
+	if (myPlayer->getPos().getZ() < -winDistance && getActiveScene() == getScenes()[0])
 	{
-		ranking->setPlayerPoints(myPlayer->getPoints());
-		gameOver();
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -82,7 +110,6 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 	case 'd':
 		if (getActiveScene() != nullptr)
 		{
-			//this->scenes[0]->getSolid(0)->setVel(Vector3D(1, 0, 0));
 			Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 			myPlayer->SideMovement(1.0f);
 		}
@@ -123,7 +150,7 @@ void MyGame::empezarJuego()
 	}
 }
 
-void MyGame::gameOver()
+void MyGame::winGame()
 {
 	if (getActiveScene() == getScenes()[0] && getScenes()[2] != nullptr)
 	{
