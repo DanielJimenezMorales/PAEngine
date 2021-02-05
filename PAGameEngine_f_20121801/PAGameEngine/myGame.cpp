@@ -55,7 +55,7 @@ void MyGame::update() {
 	}
 	static_cast<GameScene*>(getScenes()[0])->getDeleteObstacleArray().clear();
 
-	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
+	if (myPlayer->getPos().getZ() < -100 && getActiveScene() == getScenes()[0])
 	{
 		ranking->setPlayerPoints(myPlayer->getPoints());
 		gameOver();
@@ -119,7 +119,7 @@ void MyGame::empezarJuego()
 
 		//Comenzamos a mover al jugador
 		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
-		myPlayer->ModifySpeed(-1.0f);
+		myPlayer->ModifySpeed(-2.0f);
 	}
 }
 

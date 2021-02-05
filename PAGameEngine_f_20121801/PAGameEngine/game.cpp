@@ -116,8 +116,78 @@ void Game::init() {
 	mainScene->addObstacle(obstacle4);
 
 	Obstacle* obstacle5 = obstacle->clone();
-	obstacle5->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -10));
-	//mainScene->addObstacle(obstacle5);
+	obstacle5->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -50));
+	mainScene->addObstacle(obstacle5);
+
+	Obstacle* obstacle6 = obstacle->clone();
+	obstacle6->setPos(Vector3D((mainScene->getSize().getX() / 2) + 3, 2, -60));
+	mainScene->addObstacle(obstacle6);
+
+	Obstacle* obstacle7 = obstacle->clone();
+	obstacle7->setPos(Vector3D((mainScene->getSize().getX() / 2) + 6.5, 2, -70));
+	mainScene->addObstacle(obstacle7);
+
+	Obstacle* obstacle8 = obstacle->clone();
+	obstacle8->setPos(Vector3D((mainScene->getSize().getX() / 2) - 0 , 2, -40));
+	mainScene->addObstacle(obstacle8);
+
+	Obstacle* obstacle9 = obstacle->clone();
+	obstacle9->setPos(Vector3D((mainScene->getSize().getX() / 2) - 1, 2, -90));
+	mainScene->addObstacle(obstacle9);
+
+	Obstacle* obstacle10 = obstacle->clone();
+	obstacle10->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -60));
+	mainScene->addObstacle(obstacle10);
+
+	Obstacle* obstacle11 = obstacle->clone();
+	obstacle11->setPos(Vector3D((mainScene->getSize().getX() / 2) - 5.5, 2, -70));
+	mainScene->addObstacle(obstacle11);
+
+	Obstacle* obstacle12 = obstacle->clone();
+	obstacle12->setPos(Vector3D((mainScene->getSize().getX() / 2) + 3, 2, -28));
+	mainScene->addObstacle(obstacle12);
+
+	Obstacle* obstacle13 = obstacle->clone();
+	obstacle13->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0 , 2, -27));
+	mainScene->addObstacle(obstacle13);
+
+	Obstacle* obstacle14 = obstacle->clone();
+	obstacle14->setPos(Vector3D((mainScene->getSize().getX() / 2) + 3.5, 2, -43));
+	mainScene->addObstacle(obstacle14);
+
+	Obstacle* obstacle15 = obstacle->clone();
+	obstacle15->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0, 2, -80));
+	mainScene->addObstacle(obstacle15);
+
+	Obstacle* obstacle16 = obstacle->clone();
+	obstacle16->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3.5, 2, -77));
+	mainScene->addObstacle(obstacle16);
+
+	Obstacle* obstacle17 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -95));
+	mainScene->addObstacle(obstacle17);
+
+	Obstacle* obstacle18 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 2, 2, -75));
+	mainScene->addObstacle(obstacle18);
+
+	Obstacle* obstacle19 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) + 2, 2, -67));
+	mainScene->addObstacle(obstacle19);
+
+	Obstacle* obstacle20 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 5, 2, -45));
+	mainScene->addObstacle(obstacle20);
+
+	Obstacle* obstacle21 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0.5, 2, -79));
+	mainScene->addObstacle(obstacle21);
+
+	Obstacle* obstacle22 = obstacle->clone();
+	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -27));
+	mainScene->addObstacle(obstacle22);
+
+	//////
 
 	Collectable* coin = new Collectable();
 	coin->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -10));
@@ -148,7 +218,6 @@ void Game::init() {
 	terrain->setWidth(500);
 	mainScene->add(terrain);
 
-	this->generateRandomEnemies(mainScene, 8.0f + 7.5f, -10.0f, 200.0f, 3.0f, 6.0f, 0.5f);
 	this->scenes.push_back(mainScene);
 
 	GameScene* secondaryScene = new(nothrow) GameScene();
@@ -324,20 +393,4 @@ void Game::processMouseMovement(int x, int y) {
 
 void Game::processMouseClick(int button, int state, int x, int y) {
 	this->activeScene->processMouseClick(button, state, x, y);
-}
-
-//NO VA
-void Game::generateRandomEnemies(Scene* scene, float limitX, float minLimitZ, float maxLimitZ, float xDistanceBetweenSpawnPos, float zDistanceBetweenSpawnPos, float spawnProbability)
-{
-	for (float z = minLimitZ; z <= maxLimitZ; z = z + zDistanceBetweenSpawnPos)
-	{
-		for (float x = limitX; x >= -limitX; x = x - xDistanceBetweenSpawnPos)
-		{
-			this->spawnPositions.push_back(Vector3D(x, 2.0, z));
-		}
-	}
-
-	Obstacle* obstacle = new Obstacle();
-	obstacle->setPos(Vector3D(8, 2, -20));
-	//scene->add(obstacle);
 }
