@@ -4,7 +4,8 @@
 class Collectable : public Sphere
 {
 public:
-	Collectable() : Sphere() {}
+	Collectable() : Sphere() {
+	}
 	~Collectable() {}
 
 	Collectable* clone() {

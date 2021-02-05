@@ -160,7 +160,7 @@ void Game::init() {
 
 	Cuboid* terrain = new Cuboid();
 	terrain->setPos(Vector3D(mainScene->getSize().getX() / 2, 0, -250));
-	terrain->setColor(Vector3D(0, 1, 0));
+	terrain->setColor(Vector3D(1, 1, 0.75));
 	terrain->setHeight(0.1);
 	terrain->setLength(22);
 	terrain->setWidth(500);

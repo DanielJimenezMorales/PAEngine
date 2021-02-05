@@ -13,8 +13,9 @@ class Player : public Cube
 	int pointsNumber;
 
 public:
-	Player() : Cube()
+	Player(Vector3D col = Vector3D(0.5,0.5,1)) : Cube()
 	{
+		this->setColor(col);
 		speedMultiplier = 1.0f;
 		pointsNumber = 0;
 		this->playerCamera = new CameraFPS();
