@@ -54,7 +54,6 @@ void MyGame::update() {
 		delete v->at(i);
 	}
 	static_cast<GameScene*>(getScenes()[0])->getDeleteObstacleArray().clear();
-	//BORRAR OBJETOS(VER FOTO)
 
 	if (myPlayer->getPos().getZ() < -20 && getActiveScene() == getScenes()[0])
 	{
