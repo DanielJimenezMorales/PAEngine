@@ -19,6 +19,13 @@ void GameScene::render()
 }
 
 void GameScene::update(const double& dt) {
+
+	if (hasPlayer)
+	{
+		Player* myPlayer = static_cast<Player*>(getSolid(0));
+		this->getCamera()->setPos(Vector3D(0, -myPlayer->getPos().getZ(), 30));
+	}
+
 	for (Solid* ps : getSolids()) {
 		ps->update(dt);
 		Vector3D pos = ps->getPos();

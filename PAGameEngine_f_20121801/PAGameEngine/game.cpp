@@ -124,36 +124,51 @@ void Game::init() {
 	mainScene->addObstacle(obstacle17);
 
 	Obstacle* obstacle18 = obstacle->clone();
-	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 2, 2, -75));
+	obstacle18->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -87));
 	mainScene->addObstacle(obstacle18);
 
 	Obstacle* obstacle19 = obstacle->clone();
-	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) + 2, 2, -67));
+	obstacle19->setPos(Vector3D((mainScene->getSize().getX() / 2) + 2, 2, -67));
 	mainScene->addObstacle(obstacle19);
 
 	Obstacle* obstacle20 = obstacle->clone();
-	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 5, 2, -45));
+	obstacle20->setPos(Vector3D((mainScene->getSize().getX() / 2) - 5, 2, -45));
 	mainScene->addObstacle(obstacle20);
 
 	Obstacle* obstacle21 = obstacle->clone();
-	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0.5, 2, -79));
+	obstacle21->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0.5, 2, -69));
 	mainScene->addObstacle(obstacle21);
 
 	Obstacle* obstacle22 = obstacle->clone();
-	obstacle17->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -27));
+	obstacle22->setPos(Vector3D((mainScene->getSize().getX() / 2) - 7, 2, -27));
 	mainScene->addObstacle(obstacle22);
 
+	Obstacle* obstacle23 = obstacle->clone();
+	obstacle23->setPos(Vector3D((mainScene->getSize().getX() / 2) - 3, 2, -50));
+	mainScene->addObstacle(obstacle23);
+
+	/////////////
+	//COLECTABLES
+	/////////////
 	Collectable* coin = new Collectable();
-	coin->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -10));
+	coin->setPos(Vector3D((mainScene->getSize().getX() / 2) - 0.2, 2, -32));
 	mainScene->addCollectable(coin);
 
 	Collectable* coin2 = coin->clone();
-	coin2->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -15));
+	coin2->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0.3, 2, -20));
 	mainScene->addCollectable(coin2);
 
 	Collectable* coin3 = coin->clone();
-	coin3->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -20));
+	coin3->setPos(Vector3D((mainScene->getSize().getX() / 2) - 2, 2, -44));
 	mainScene->addCollectable(coin3);
+
+	Collectable* coin4 = coin->clone();
+	coin4->setPos(Vector3D((mainScene->getSize().getX() / 2) + 0, 2, -65));
+	mainScene->addCollectable(coin4);
+
+	Collectable* coin5 = coin->clone();
+	coin5->setPos(Vector3D((mainScene->getSize().getX() / 2) + 4.5, 2, -80));
+	mainScene->addCollectable(coin5);
 
 	Light* sun = new Light(Vector3D(0, 1, 0));
 	mainScene->add(sun);
@@ -284,8 +299,7 @@ void Game::init(const string& file)
 }
 
 void Game::render() {
-	//Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
-	//this->activeScene->render(myPlayer->getPlayerCamera());
+	this->activeScene->render();
 }
 
 void Game::update() {

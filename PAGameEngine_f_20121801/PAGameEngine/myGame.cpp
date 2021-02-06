@@ -53,8 +53,6 @@ void MyGame::checkCollisions()
 			{
 				winGame();
 			}
-
-			cout << myPlayer->getContador()->getLifesLeft() << endl;
 		}
 	}
 
@@ -62,8 +60,7 @@ void MyGame::checkCollisions()
 	{
 		if (myPlayer->collisionDetectionAABB(static_cast<Solid*>(static_cast<GameScene*>(getScenes()[0])->getCollectables(i))) == true)
 		{
-			cout << static_cast<GameScene*>(getScenes()[0])->getCollectableArray().size() << endl;
-
+			myPlayer->addPoints(1);
 			static_cast<GameScene*>(getScenes()[0])->addDeleteObstacle(static_cast<GameScene*>(getScenes()[0])->getCollectables(i));
 			static_cast<GameScene*>(getScenes()[0])->delCollectable(i);
 		}
@@ -102,7 +99,6 @@ void MyGame::processKeyPressed(unsigned char key, int x, int y) {
 	case 'a':
 		if (getActiveScene() != nullptr)
 		{
-			//this->scenes[0]->getSolid(0)->setVel(Vector3D(-1, 0, 0));
 			Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 			myPlayer->SideMovement(-1.0f);
 		}
@@ -154,6 +150,9 @@ void MyGame::winGame()
 {
 	if (getActiveScene() == getScenes()[0] && getScenes()[2] != nullptr)
 	{
+		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
+		ranking->setPlayerPoints(myPlayer->getPoints());
+		cout << myPlayer->getPoints();
 		ranking->sortRanking();
 
 		try
@@ -203,7 +202,6 @@ void MyGame::winGame()
 
 		setActiveScene(getScenes()[2]);
 
-		Player* myPlayer = static_cast<Player*>(getScenes()[0]->getSolid(0));
 		myPlayer->ModifySpeed(0.0f);
 		myPlayer->SideMovement(0.0f);
 	}
