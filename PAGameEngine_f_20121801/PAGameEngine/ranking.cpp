@@ -3,16 +3,10 @@
 void Ranking::initRanking()
 {
 	lecturaEnRanking("ranking.txt");
-	for (int i = 0; i < filas.size(); i++)
-	{
-		cout << filas[i]->getPlayerName() << endl;
-		cout << filas[i]->getTotalPoints() << endl;
-	}
 }
 
-bool Ranking::escrituraEnRanking(string fileName)
+void Ranking::escrituraEnRanking(string fileName)
 {
-	bool success = true;
 	ofstream fFicheroTextoEscritura(fileName);
 	if (fFicheroTextoEscritura.is_open())
 	{
@@ -24,10 +18,8 @@ bool Ranking::escrituraEnRanking(string fileName)
 	}
 	else
 	{
-		success = false;
-		cout << "ERROR" << endl;
+		throw RankingException();
 	}
-	return success;
 }
 
 void Ranking::lecturaEnRanking(string fileName)
@@ -58,7 +50,7 @@ void Ranking::lecturaEnRanking(string fileName)
 	}
 	else
 	{
-		cout << "ERROR" << endl;
+		throw RankingException();
 	}
 }
 

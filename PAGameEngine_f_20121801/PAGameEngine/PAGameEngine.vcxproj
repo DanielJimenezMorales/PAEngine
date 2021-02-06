@@ -160,6 +160,7 @@
     <ClCompile Include="obstacle.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="ranking.cpp" />
+    <ClCompile Include="rankingException.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="solid.cpp" />
     <ClCompile Include="sphere.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="obstacle.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="ranking.h" />
+    <ClInclude Include="rankingException.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="solid.h" />
     <ClInclude Include="sphere.h" />

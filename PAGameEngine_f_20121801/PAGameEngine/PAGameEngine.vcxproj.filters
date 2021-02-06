@@ -117,11 +117,14 @@
     <ClCompile Include="util.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="filaRanking.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="collectable.cpp">
       <Filter>Archivos de origen\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="rankingException.cpp">
+      <Filter>Archivos de origen\core</Filter>
+    </ClCompile>
+    <ClCompile Include="filaRanking.cpp">
+      <Filter>Archivos de origen\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,11 +206,14 @@
     <ClInclude Include="util.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="filaRanking.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="collectable.h">
       <Filter>Archivos de encabezado\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="rankingException.h">
+      <Filter>Archivos de encabezado\core</Filter>
+    </ClInclude>
+    <ClInclude Include="filaRanking.h">
+      <Filter>Archivos de encabezado\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

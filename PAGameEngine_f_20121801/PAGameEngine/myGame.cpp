@@ -155,7 +155,15 @@ void MyGame::winGame()
 	if (getActiveScene() == getScenes()[0] && getScenes()[2] != nullptr)
 	{
 		ranking->sortRanking();
-		ranking->escrituraEnRanking("ranking.txt");
+
+		try
+		{
+			ranking->escrituraEnRanking("ranking.txt");
+		}
+		catch (RankingException& e)
+		{
+			cerr << e.what() << endl;
+		}
 
 		//TEXTO RANKING
 		string a = ranking->getRow(0)->getPlayerName();

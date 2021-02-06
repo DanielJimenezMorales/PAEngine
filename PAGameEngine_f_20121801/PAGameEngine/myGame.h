@@ -8,7 +8,15 @@ class MyGame : public Game
 public:
 	MyGame() : Game()
 	{
-		ranking = new Ranking();
+		try
+		{
+			ranking = new Ranking();
+		}
+		catch (RankingException& e)
+		{
+			cerr << e.what() << endl;
+		}
+
 		askForPlayerName();
 	}
 

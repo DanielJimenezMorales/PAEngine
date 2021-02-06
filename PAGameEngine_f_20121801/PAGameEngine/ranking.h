@@ -6,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include "filaRanking.h"
+#include "rankingException.h"
 
 using namespace std;
 
@@ -41,7 +42,7 @@ public:
 	void initRanking();
 	void addRow(FilaRanking* newRow) { this->filas.push_back(newRow); };
 	FilaRanking* getRow(int pos) { return filas[pos]; }
-	bool escrituraEnRanking(string fileName);
+	void escrituraEnRanking(string fileName);
 	void lecturaEnRanking(string fileName);
 	void sortRanking();
 	void sortArray(FilaRanking* newPoints);
